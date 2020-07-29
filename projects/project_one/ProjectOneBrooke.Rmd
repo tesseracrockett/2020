@@ -1,0 +1,69 @@
+---
+  title: "ProjectOne Brooke"
+output: html_document
+---
+  
+  
+  # Data Project One
+  
+  ## 100 points
+  
+  Below are the questions for the first data practical assignment. This project uses the "FossilAnts.csv" file, located in the data directory for the project. The point value of each question is denoted next to it. A blank cell is below each for your answer; feel free to create more blank cells as needed.
+
+0. (5 pts) Create a directory called `projects`, and in it, a subdirectory called `project_one`. Use `download.files` to get [this file](https://github.com/BiologicalDataAnalysis2019/2019/blob/master/projects/project_one/ProjectOneB.Rmd).
+```
+#Answer here
+```
+
+
+1. (5 pts). You're correct that your data have a bit of work required to be usable. First, load `tidyverse` and look at the manual for  `excel_sheets`
+
+```{r}
+#answer here
+```
+
+2. (5 pts) Look at the manual for the `read_excel` function. 
+
+```{r}
+#Enter Your Answer Here
+
+```
+
+2. (10pts) Try the below code:
+```{r}
+library(readxl)
+path <- "/cloud/project/projects/project_one/data/datasheet.xlsx"
+sheet_list <- path %>% 
+  excel_sheets() %>% 
+  set_names() %>% 
+  map(read_excel, path = path)
+
+```
+
+What does this do?
+
+```
+#Answer here
+
+```
+
+3. (5 pts) Try this:
+
+```{r}
+sheet_list <- path %>% 
+  excel_sheets() %>% 
+  set_names() %>% 
+  map_df(~ read_excel(path = path, sheet = .x,), .id = "sheet")
+
+```
+What goes wrong here:
+
+```
+
+#Answer
+
+```
+
+
+4. There are some pretty serious issues related to data analysis in this workbook. For the rest of the homework, I'm going to have you rework your datasheets. In each datasheet, put the date in a column for each year, month, day, the site in a site column, and who you sampled with in its own column. 
+This is going to take you a little while, so we'll let this be the rest of your exam. Find me when you are done and we can merge into a single, large datatable.

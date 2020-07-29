@@ -1,0 +1,76 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at 5 PM. Fill in your answers below and save before that time.
+
+1) Save your five taxa that you will put on your tree to a vector below. (5 pts):
+
+```{r}
+#Answer here
+
+```
+
+2) Next, clean the names of any spelling errors via `rotl` (10 pts)
+
+
+```
+#Answer here
+```
+
+
+3) Retrieve GenBank IDs for all of your taxa (20 pts)
+
+
+```{r}
+
+#Answer here
+
+```
+
+3) Retrieve sequence data for all of your taxa (20 pts)
+
+
+```{r}
+#Answer here
+
+```
+
+
+4) Look at the sequence data. Are there any genes all five taxa have in common? If so, write below. if not, look for more sequence data (i.e., more years, or a different species) (10 pts.)
+
+
+```{r}
+#Answer Here
+
+```
+
+
+
+5) Create a single text file with one gene sequence per tip. (10 pts)
+
+
+```{r}
+#Answer here
+```
+
+6) Where will you save your file? Think back to the article we read last week, and justify where you would like to save your file and what you'd like to call it (10 pts):
+
+```{r}
+
+
+```
+
+
+7) Use `ape` to read in your file, and demonstrate that all the data intended to be there are, in fact, there.
+
+```{r}
+
+#Answer here
+```
+
+
+## MS students:
+
+Your additional homework is to decide what locus you _should_ build your phylogeny from. Below, put what locus, and why.

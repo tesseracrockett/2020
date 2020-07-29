@@ -1,0 +1,87 @@
+---
+title: "HomeworkOne.Rmd"
+output: html_document
+---
+
+# Homework One: Due Sept. 6 at 5 pm.
+
+First, download your homework. In your RStudio, enter:
+
+```{r}
+dir.create("/cloud/project/homeworks")  
+download.file("https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2019/master/homeworks/HomeworkOne.Rmd", destfile = "/cloud/project/homeworks/HomeworkOne.Rmd")
+```
+
+Your homework will now be located in a directory called `homeworks`.
+
+
+In your RStudio interface, you will note that there is now a "Homeworks" directory. In it, you will find "HomeworkOne.Rmd". In your RStudio instance, open it.
+
+Each question will direct you to perform a task. Each question that expects code as an answer will have a space for you to enter the code. 
+
+You are welcome, and even encouraged, to work with a partner. I do ask, though, that every member submits their own homework. To submit your homework, simply save it. I will see it.
+
+
+## Question One - 1 point.
+
+Load in the surveys.csv data file, and save it to a variable called "surveys".
+
+```{r}
+#Enter your answer for Question 1 here
+
+```
+
+## Question Two - 1 point
+
+What is the mean hindfoot length? Show your work below:
+```{r}
+#Enter your answer for Question 2 here
+
+```
+
+## Question Three - 1 point
+
+Save the `hindfoot_length` column to its own variable, called `hindfoot_vector`.
+```{r}
+#Enter your answer for Question 3 here
+
+```
+
+## Question Four - 2 points
+
+Calculate the mean of the `hindfoot_vector`. Does it work? 
+```{r}
+#Enter your answer for Question 4 here
+
+```
+In your own words, why did it not work? 
+
+
+## Question Five - 1 point
+
+Test your idea about why it didn't work by writing some code that will fix the problem.
+```{r}
+#Enter your answer for Question 5 here
+
+```
+
+## Question Six - 2 points
+
+We included an example in class that was a little confusing. Can you explain, in your own words, why the code gives the result it does?
+
+```{r}
+animals <- c("mouse", "rat", "dog", "cat")
+animals %in% c("rat", "cat", "dog", "duck", "goat")
+
+```
+Enter your explanation here:
+
+## Question Seven - 2 points
+
+I have written some code to calculate the mean of the hindfoot. But it's not working! Correct my code. 
+
+```{r eval=FALSE}
+surveys <- read.csv("/cloud/project/data/surveys.csv")
+hindfoot_vector <- surveys[7]
+hindfoot_mean <- (sum(hindfoot_vector)/length(hindfoot_vector))
+```

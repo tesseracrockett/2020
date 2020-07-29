@@ -1,0 +1,56 @@
+---
+title: "Homework Three"
+output: html_document
+---
+
+# Homework Two: Due Nov. 1 at 5 pm.
+
+First, download your homework. In your RStudio, fill in the below command:
+
+```{r, eval = FALSE}
+download.file()
+
+```
+
+# Question One (2 pts):
+Using your GBIF dataframe from class queried using your five taxon list, check (using programming, not by looking at every row!) that you only have five taxa in the dataframe. If there are more than five, filter down to five taxa.
+
+```{r}
+
+```
+
+# Question Two (5 pts)
+
+Choose and create a map visualization that shows how many observations there per country. You may choose to resize the points, or to use cluster markers. You may also wish to look back at the data you queried from GBIF _before_ you did any filtering on it.
+
+```{r}
+# Answer here
+
+```
+
+# Question 3 (3 pts)
+
+
+Let's say you have a colleague who is colorblind. Have a look at [this](https://vizualscientist.com/figures-colorblindness/) reading. What is one thing you could do to make your figure colorblind-friendly? Try it below. 
+
+```{r}
+
+```
+
+
+## MS Students:
+
+1) Take your figure from Q2. Set the view to encompass the highest density of samples. 
+
+2) Go back to the original GBIF data. Filter your observations to only those that you can tell who identified the specimen. Re-map them. Does this change your map much? Would you find this filtration necessary for your work? Why or why not?
+
+
+```{r}
+
+
+```
+
+```
+#Answer here
+
+```

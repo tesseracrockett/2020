@@ -1,0 +1,26 @@
+---
+title: "Exploration"
+author: April Wright
+minutes: 90
+output: html_document
+---
+
+Today, we're going to do something a little different than we have been doing.
+
+In the first project, we asked about mammal body sizes and climate change. First, I'd like you to google Bergman's Rule.
+Develop a hypothesis of what you'd expect under Bergman's rule on a warming planet:
+
+```
+# Hypothesis here
+```
+
+To test your hypothesis, are the data that you have sufficient? What other data do you want?
+
+```
+#Answer here
+```
+
+Sketch on one of the whiteboards (as a graph) what you think the relationship between the data you wish you had and one of the variables in our data might be.
+
+
+

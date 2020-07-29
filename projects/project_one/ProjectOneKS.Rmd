@@ -1,0 +1,116 @@
+---
+  title: "ProjectOne Kearstin & Sarah"
+output: html_document
+---
+  
+  
+  # Data Project One
+  
+  ## 100 points
+  
+  Below are the questions for the first data practical assignment. This project uses the "FossilAnts.csv" file, located in the data directory for the project. The point value of each question is denoted next to it. A blank cell is below each for your answer; feel free to create more blank cells as needed.
+
+0. (5 pts) Create a directory called `projects`, and in it, a subdirectory called `project_one`. Use `download.files` to get [this file](https://github.com/BiologicalDataAnalysis2019/2019/blob/master/projects/project_one/ProjectOneKS.Rmd).
+```
+#Answer here
+```
+
+
+1. 5 pts. Import the `tidyverse` package and load the data. Save the data in a variable called `project_dat`. Print the data to the screen to ensure it loaded correctly.
+
+```{r}
+#Enter Your Answer Here
+
+```
+
+2. (5pts) In the number of Camura column, replace NAs with zeroes if none were caught.
+If none were sought, leave as NA. Make a note below of which you did and why.
+```
+# Answer here
+```
+
+3. (5 pts) Do the same with Number of Venusta. 
+
+```{r}
+#Answer Here
+
+```
+
+4. (5 pts) Choose a set of latitude and longitude columns to either drop or rename. 
+```{r}
+  ?rename
+#Answer here
+
+```
+
+5. (5pts) If you chose to rename, why? If you chose to drop, why?
+
+```
+#Answer here
+
+```
+6. (5 points) Are there any columns in your dataset that contain two pieces of data? If so, identify them.
+
+```
+# Answer here
+```
+
+7. (5pts) Please look at the help page for the `separate` function.
+
+```{r}
+# Show how you would pull up the help
+```
+
+
+7. (10 pts) How could you separate one column into two? 
+  
+  ```{r}
+#Answer here
+```
+
+Next, we will test a hypothesis. Your hypthesis is that the model probabilities for _Cyprinella_ are higher than those
+for _Hybopsis_ or _Percina_. 
+
+8. (5 pts) Write out the steps you would take to address this question. Will you need to split up the data? Will you need to group the data based on the values in some column? 
+  
+```
+#Answer Here
+```
+
+9. (15 pts) Perform the operations you described in (8). 
+
+```{r}
+#Answer here
+
+```
+
+10. (5 pts) Do the results of your code support the hypothesis? 
+  
+```
+#Answer here
+```
+
+
+11. (10 pts) Save the dataframe with the split columns into a new directory called `project_one_data_output`. Save it as a csv file called "column_separated.csv" 
+
+```{r}
+# Answer here
+
+```
+
+12. (10 pts) Produce a histogram of the number of specimens based on the Known/Unknown column.
+Which I assume means there were prior records of that species at that site? I'm kind of curious
+to see the results for that. 
+  
+```{r}
+#Answer here
+
+```
+
+13. (5 pts) Change the font size on your histogram so that it can be read comfortably on your computer screen from five feet away. Save the file as "large_font.pdf".
+
+```{r}
+
+```
+
+
