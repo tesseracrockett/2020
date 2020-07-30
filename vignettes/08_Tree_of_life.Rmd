@@ -15,7 +15,7 @@ First, we need to do some installs.
 install.packages("devtools")
 devtools::install_github("ropensci/rotl")
 devtools::install_github("ropensci/traits")
-install.packages('phylotaR')
+#install.packages('phylotaR')
 ```
 
 Now, load your packages:
@@ -23,7 +23,7 @@ Now, load your packages:
 
 ```{r }
 library(rotl)
-library(phylotaR)
+#library(phylotaR)
 ```
 
 ## Open Tree

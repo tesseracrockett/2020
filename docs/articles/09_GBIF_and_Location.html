@@ -5,19 +5,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GBIF And Spatial Data • compbio2019</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<title>GBIF And Spatial Data • compbio2020</title>
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="GBIF And Spatial Data">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="compbio2020">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -29,7 +30,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">compbio2019</a>
+        <a class="navbar-link" href="../index.html">compbio2020</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -94,10 +95,11 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="09_GBIF_and_Location_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>GBIF And Spatial Data</h1>
+      <h1 data-toc-skip>GBIF And Spatial Data</h1>
             
       
       
@@ -109,62 +111,64 @@
     
 <p>This week, we will be starting with geospatial data and mapping. Today, we will begin with locality data in GBIF. GBIF is a website for aggregating location data from other sources.</p>
 <p>We will work with two packages today. One is <a href="https://www.gbif.org/tool/81747/rgbif">RGBIF</a>, an interface to <a href="https://www.gbif.org/">GBIF</a> data maintained by the <a href="https://ropensci.org/">ROpenSci</a> group.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"rgbif"</span>)</a></code></pre></div>
-<pre><code>## Installing package into '/home/rstudio-user/R/x86_64-pc-linux-gnu-library/3.6'
-## (as 'lib' is unspecified)</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"leaflet"</span>)</a></code></pre></div>
-<pre><code>## Installing package into '/home/rstudio-user/R/x86_64-pc-linux-gnu-library/3.6'
-## (as 'lib' is unspecified)</code></pre>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"rgbif"</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"leaflet"</span>)</pre></body></html></div>
 <p>Later in this lesson, we will also use the <code>rotl</code> package we’ve seen last week.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(rotl)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(rgbif)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(leaflet)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
+<pre><code>## ── Attaching packages ────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.0
+## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rotl</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rgbif</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">leaflet</span>)</pre></body></html></div>
 <p>First, we’re going to try an example for one ant. We will query locality data and map it in a few ways. Then, you will figure out how to make the process of mapping data iterable over a set of taxa.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://docs.ropensci.org/rgbif/reference/name_suggest.html">name_suggest</a></span>(<span class="st">"Atta mexicana"</span>)</a></code></pre></div>
-<pre><code>## Registered S3 method overwritten by 'crul':
-##   method                 from
-##   as.character.form_file httr</code></pre>
-<pre><code>## # A tibble: 1 x 3
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/name_suggest.html">name_suggest</a></span>(<span class="st">"Atta mexicana"</span>)</pre></body></html></div>
+<pre><code>## Records returned [1] 
+## No. unique hierarchies [0] 
+## Args [q=Atta mexicana, limit=100, fields1=key, fields2=canonicalName,
+##      fields3=rank] 
+## # A tibble: 1 x 3
 ##       key canonicalName rank   
-## *   &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;  
+##     &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;  
 ## 1 5035745 Atta mexicana SPECIES</code></pre>
 <p>Next, we’re going to use <code>occ_search</code> to search the GBIF database for where these things are occurring.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"> occurences &lt;-<span class="st"> </span><span class="kw"><a href="https://docs.ropensci.org/rgbif/reference/occ_search.html">occ_search</a></span>(<span class="dt">taxonKey =</span> <span class="dv">5035745</span>, <span class="dt">limit =</span> <span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"> <span class="no">occurences</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/occ_search.html">occ_search</a></span>(<span class="kw">taxonKey</span> <span class="kw">=</span> <span class="fl">5035745</span>, <span class="kw">limit</span> <span class="kw">=</span> <span class="fl">20</span>)</pre></body></html></div>
 <p>Next, we will filter the resultant dataset to name and lat and longitude data.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">no_na &lt;-<span class="st"> </span>occurences<span class="op">$</span>data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(scientificName, decimalLatitude, decimalLongitude) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">drop_na</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
+<span class="no">no_na</span> <span class="kw">&lt;-</span> <span class="no">occurences</span>$<span class="no">data</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">scientificName</span>, <span class="no">decimalLatitude</span>, <span class="no">decimalLongitude</span>) <span class="kw">%&gt;%</span>
+  <span class="fu">drop_na</span>()</pre></body></html></div>
 <p>And finally, we will plot the data using <code>leaflet</code></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">k &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>(no_na) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addMarkers</a></span>(<span class="op">~</span>decimalLongitude, <span class="op">~</span>decimalLatitude, <span class="dt">popup =</span> no_na<span class="op">$</span>scientificName)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">k</span> <span class="kw">&lt;-</span> <span class="kw pkg">leaflet</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>(<span class="no">no_na</span>) <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">popup</span> <span class="kw">=</span> <span class="no">no_na</span>$<span class="no">scientificName</span>)</pre></body></html></div>
 <p>This looks much like plotting with <code>ggplot</code> and tidyverse. That’s because leaflet is based on the same principles. We establish a canvas and the data in the first line, then we add tiles (the actual map we will use), and then we add our points. When we think about it, this is quite similar to establishing a ggplot canvas, the axes, and the points to plot.</p>
 <p>One point is easy. How often do we only want one point, though? Probably, we will want to plot several species. First, with a partner, work out how to get GBIF ids for a set of taxa.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">ants &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Martialis"</span>, <span class="st">"Atta"</span>, <span class="st">"Ectatomma"</span>, <span class="st">"Tatuidris"</span>, <span class="st">"Aneuretus"</span>, <span class="st">"Xymmer"</span>, <span class="st">"Aenictus"</span>)</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co">#Get GBIF ids for our vector of species.</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6">ids &lt;-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>()</a>
-<a class="sourceLine" id="cb16-7" data-line-number="7">  <span class="cf">for</span> (ant <span class="cf">in</span> ants){</a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">   <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(ant)</a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">   raw &lt;-<span class="st"> </span><span class="kw"><a href="https://docs.ropensci.org/rgbif/reference/name_suggest.html">name_suggest</a></span>(ant)</a>
-<a class="sourceLine" id="cb16-10" data-line-number="10">   <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(raw)</a>
-<a class="sourceLine" id="cb16-11" data-line-number="11">   ids[ant] &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(raw<span class="op">$</span>key)</a>
-<a class="sourceLine" id="cb16-12" data-line-number="12">}</a></code></pre></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">ants</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Martialis"</span>, <span class="st">"Atta"</span>, <span class="st">"Ectatomma"</span>, <span class="st">"Tatuidris"</span>, <span class="st">"Aneuretus"</span>, <span class="st">"Xymmer"</span>, <span class="st">"Aenictus"</span>)
+
+<span class="co">#Get GBIF ids for our vector of species.</span>
+
+
+<span class="no">ids</span> <span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>()
+  <span class="kw">for</span> (<span class="no">ant</span> <span class="kw">in</span> <span class="no">ants</span>){
+   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">ant</span>)
+   <span class="no">raw</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/name_suggest.html">name_suggest</a></span>(<span class="no">ant</span>)
+   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">raw</span>)
+   <span class="no">ids</span>[<span class="no">ant</span>] <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">raw</span>$<span class="no">data</span>$<span class="no">key</span>)
+}</pre></body></html></div>
 <pre><code>## [1] "Martialis"
+## Records returned [72] 
+## No. unique hierarchies [0] 
+## Args [q=Martialis, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 72 x 3
 ##        key canonicalName         rank    
-##  *   &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;   
+##      &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;   
 ##  1 7744356 Martialis             GENUS   
 ##  2 9599316 ? martialis           UNRANKED
 ##  3 7437085 Martialis heureka     SPECIES 
@@ -176,12 +180,15 @@
 ##  9 8005896 Scopula martialis     SPECIES 
 ## 10 5484304 Nectria martialis     SPECIES 
 ## # … with 62 more rows</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <pre><code>## [1] "Atta"
+## Records returned [100] 
+## No. unique hierarchies [0] 
+## Args [q=Atta, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 100 x 3
 ##        key canonicalName  rank   
-##  *   &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;  
+##      &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;  
 ##  1 1323108 Atta           GENUS  
 ##  2 6006602 Atta           GENUS  
 ##  3 5035739 Atta robusta   SPECIES
@@ -190,15 +197,18 @@
 ##  6 5035740 Atta silvae    SPECIES
 ##  7 5035749 Atta domicola  SPECIES
 ##  8 8772445 Atta turrifex  SPECIES
-##  9 7359300 Atta didita    SPECIES
-## 10 5035736 Atta columbica SPECIES
+##  9 7965711 Atta hostilis  SPECIES
+## 10 8406115 Atta coronata  SPECIES
 ## # … with 90 more rows</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <pre><code>## [1] "Ectatomma"
+## Records returned [90] 
+## No. unique hierarchies [0] 
+## Args [q=Ectatomma, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 90 x 3
 ##        key canonicalName         rank   
-##  *   &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;  
+##      &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;  
 ##  1 1314135 Ectatomma             GENUS  
 ##  2 7570313 Ectatomma parasiticum SPECIES
 ##  3 9175376 Ectatomma rimulosum   SPECIES
@@ -210,150 +220,168 @@
 ##  9 1314149 Ectatomma opaciventre SPECIES
 ## 10 4673119 Ectatomma punctata    SPECIES
 ## # … with 80 more rows</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <pre><code>## [1] "Tatuidris"
+## Records returned [3] 
+## No. unique hierarchies [0] 
+## Args [q=Tatuidris, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 3 x 3
 ##       key canonicalName     rank   
-## *   &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;  
+##     &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;  
 ## 1 1319364 Tatuidris         GENUS  
-## 2 1319365 Tatuidris tatusia SPECIES
-## 3 9541003 Tatuidris kapasi  SPECIES</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+## 2 9541003 Tatuidris kapasi  SPECIES
+## 3 1319365 Tatuidris tatusia SPECIES</code></pre>
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <pre><code>## [1] "Aneuretus"
+## Records returned [4] 
+## No. unique hierarchies [0] 
+## Args [q=Aneuretus, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 4 x 3
 ##       key canonicalName     rank   
-## *   &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;  
+##     &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;  
 ## 1 1320037 Aneuretus         GENUS  
 ## 2 1320038 Aneuretus simoni  SPECIES
 ## 3 1737071 Decodes aneuretus SPECIES
 ## 4 1590997 Bibio aneuretus   SPECIES</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <pre><code>## [1] "Xymmer"
+## Records returned [3] 
+## No. unique hierarchies [0] 
+## Args [q=Xymmer, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 3 x 3
 ##        key canonicalName rank   
-## *    &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;  
+##      &lt;int&gt; &lt;chr&gt;         &lt;chr&gt;  
 ## 1  4674293 Xymmer        GENUS  
 ## 2 10000176 Xymmer ambvky SPECIES
 ## 3  8741954 Xymmer phungi SPECIES</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <pre><code>## [1] "Aenictus"
+## Records returned [100] 
+## No. unique hierarchies [0] 
+## Args [q=Aenictus, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 100 x 3
-##        key canonicalName         rank   
-##  *   &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;  
-##  1 1317499 Aenictus              GENUS  
-##  2 1317562 Aenictus javanus      SPECIES
-##  3 1317538 Aenictus abeillei     SPECIES
-##  4 1317644 Aenictus lifuiae      SPECIES
-##  5 1317527 Aenictus alluaudi     SPECIES
-##  6 1317564 Aenictus trigonus     SPECIES
-##  7 1317605 Aenictus icarus       SPECIES
-##  8 1317575 Aenictus dentatus     SPECIES
-##  9 9136241 Aenictus tuberculatus SPECIES
-## 10 9265079 Aenictus nishimurai   SPECIES
+##        key canonicalName          rank   
+##      &lt;int&gt; &lt;chr&gt;                  &lt;chr&gt;  
+##  1 1317499 Aenictus               GENUS  
+##  2 1317508 Aenictus alticola      SPECIES
+##  3 1317540 Aenictus grandis       SPECIES
+##  4 1317567 Aenictus camposi       SPECIES
+##  5 1317650 Aenictus punctiventris SPECIES
+##  6 1317539 Aenictus laeviceps     SPECIES
+##  7 1317563 Aenictus gleadowii     SPECIES
+##  8 1317577 Aenictus buttgenbachi  SPECIES
+##  9 1317578 Aenictus pharoa        SPECIES
+## 10 1317639 Aenictus foreli        SPECIES
 ## # … with 90 more rows</code></pre>
-<pre><code>## Warning in ids[ant] &lt;- c(raw$key): number of items to replace is not a
+<pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
 <p>Now, we will get the actual specimen occurrences for these ants. Practice using an apply function to do this. Inspect the object you’ve queried when you’ve completed your loop. Have we dealt with an object like this before?</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co">#Search GBIF for the vector of IDs.</span></a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">df &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(ids, occ_search, <span class="dt">return=</span><span class="st">"data"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="no">ids</span> <span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>()
+  <span class="kw">for</span> (<span class="no">ant</span> <span class="kw">in</span> <span class="no">ants</span>){
+   <span class="no">raw</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/name_suggest.html">name_suggest</a></span>(<span class="no">ant</span>)
+   <span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/occ_search.html">occ_search</a></span>(<span class="kw">taxonKey</span> <span class="kw">=</span> <span class="no">raw</span>$<span class="no">data</span>$<span class="no">key</span>, <span class="kw">limit</span> <span class="kw">=</span> <span class="fl">10</span>)
+}</pre></body></html></div>
 <p>This is a vector or dataframes. Each individual query made it’s own dataframe. For simplicity, lets combine them into one dataframe object.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co">#Combine the resultant dataframes into one large dataframe</span></a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">mega_df &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(df, <span class="dt">.id =</span> <span class="st">"column_label"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><html><body><pre class="r"><span class="co">#Combine the resultant dataframes into one large dataframe</span>
+<span class="no">mega_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(<span class="kw">.id</span> <span class="kw">=</span> <span class="st">"column_label"</span>)
+  <span class="kw">for</span> (<span class="no">ant</span> <span class="kw">in</span> <span class="no">ants</span>){
+   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">df</span>$<span class="no">ant</span>$<span class="no">data</span>)
+}</pre></body></html></div>
 <p>Since we will be plotting these with a map, we need complete data in both columns - lat and long. Let’s drop any columns without data in both.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="co">#Drop rows with NA values in the lat and long</span></a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">no_na &lt;-<span class="st"> </span>mega_df <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="kw">select</span>(scientificName, decimalLatitude, decimalLongitude) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="kw">drop_na</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb29"><html><body><pre class="r"><span class="co">#Drop rows with NA values in the lat and long</span>
+<span class="no">no_na</span> <span class="kw">&lt;-</span> <span class="no">mega_df</span> <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">scientificName</span>, <span class="no">decimalLatitude</span>, <span class="no">decimalLongitude</span>) <span class="kw">%&gt;%</span>
+<span class="fu">drop_na</span>()</pre></body></html></div>
 <p>Now let’s take a peek at our results!</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co"># Plot the dataframe of observations</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">k &lt;-<span class="st"> </span>leaflet<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>(no_na) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addMarkers</a></span>(<span class="op">~</span>decimalLongitude, <span class="op">~</span>decimalLatitude, <span class="dt">popup =</span> no_na<span class="op">$</span>scientificName)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><html><body><pre class="r"><span class="co"># Plot the dataframe of observations</span>
+<span class="no">k</span> <span class="kw">&lt;-</span> <span class="kw pkg">leaflet</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>(<span class="no">no_na</span>) <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">popup</span> <span class="kw">=</span> <span class="no">no_na</span>$<span class="no">scientificName</span>)</pre></body></html></div>
 <div id="geospatial-choose-your-own-adventure" class="section level1">
 <h1 class="hasAnchor">
 <a href="#geospatial-choose-your-own-adventure" class="anchor"></a>GeoSpatial Choose Your Own Adventure</h1>
 <p>Below are six code snippets to do different types of map-based plotting. With a partner, discuss what you think would be interesting or important to view in these data. Choose a block of code to modify to accomplish your visualization. We will reconvene in about 30 minutes and do a Round Robin showing everyone’s maps. <em>Have Fun!</em></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>(no_na) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addCircles</a></span>(<span class="op">~</span>decimalLongitude, <span class="op">~</span>decimalLatitude)</a></code></pre></div>
+<div class="sourceCode" id="cb31"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>(<span class="no">no_na</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addCircles</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>)</pre></body></html></div>
 <div id="draw-point-sizes-from-a-distribution" class="section level3">
 <h3 class="hasAnchor">
 <a href="#draw-point-sizes-from-a-distribution" class="anchor"></a>Draw point sizes from a distribution</h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>(no_na) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addCircleMarkers</a></span>(<span class="op">~</span>decimalLongitude, <span class="op">~</span>decimalLatitude, <span class="dt">radius =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Uniform">runif</a></span>(<span class="dv">100</span>, <span class="dv">4</span>, <span class="dv">10</span>), <span class="dt">color =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'red'</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb32"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>(<span class="no">no_na</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addCircleMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">radius</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span>(<span class="fl">100</span>, <span class="fl">4</span>, <span class="fl">10</span>), <span class="kw">color</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'red'</span>))</pre></body></html></div>
 </div>
 <div id="cluster-observations" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cluster-observations" class="anchor"></a>Cluster observations</h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>(no_na) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addMarkers</a></span>(<span class="op">~</span>decimalLongitude, <span class="op">~</span>decimalLatitude, <span class="dt">clusterOptions =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-options">markerClusterOptions</a></span>())</a></code></pre></div>
+<div class="sourceCode" id="cb33"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>(<span class="no">no_na</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">clusterOptions</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-options.html">markerClusterOptions</a></span>())</pre></body></html></div>
 </div>
 <div id="size-points-by-number-of-observations" class="section level3">
 <h3 class="hasAnchor">
 <a href="#size-points-by-number-of-observations" class="anchor"></a>Size points by number of observations</h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">no_na <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(decimalLatitude) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n_areas =</span> <span class="kw">n</span>())  <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addCircleMarkers</a></span>(<span class="op">~</span>decimalLongitude, <span class="op">~</span>decimalLatitude, <span class="dt">radius =</span> <span class="op">~</span>n_areas, <span class="dt">color =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'red'</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb34"><html><body><pre class="r"><span class="no">no_na</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">decimalLatitude</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">n_areas</span> <span class="kw">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span>())  <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addCircleMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">radius</span> <span class="kw">=</span> ~<span class="no">n_areas</span>, <span class="kw">color</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'red'</span>))</pre></body></html></div>
 </div>
 <div id="color-points-by-species" class="section level3">
 <h3 class="hasAnchor">
 <a href="#color-points-by-species" class="anchor"></a>Color points by species</h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">pal &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric">colorBin</a></span>(</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">  <span class="dt">palette =</span> <span class="st">"Blues"</span>,</a>
-<a class="sourceLine" id="cb39-3" data-line-number="3">  no_na<span class="op">$</span>scientificName,</a>
-<a class="sourceLine" id="cb39-4" data-line-number="4">  <span class="dt">pretty =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb39-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb39-6" data-line-number="6">levs &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(no_na<span class="op">$</span>scientificName)</a>
-<a class="sourceLine" id="cb39-7" data-line-number="7">factpal &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric">colorFactor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/palettes">topo.colors</a></span>(<span class="dv">5</span>), levs)</a>
-<a class="sourceLine" id="cb39-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb39-9" data-line-number="9">no_na <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="st">  </span><span class="kw">group_by</span>(scientificName) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb39-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb39-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addCircleMarkers</a></span>(</a>
-<a class="sourceLine" id="cb39-14" data-line-number="14">    <span class="op">~</span>decimalLongitude, </a>
-<a class="sourceLine" id="cb39-15" data-line-number="15">    <span class="op">~</span>decimalLatitude,</a>
-<a class="sourceLine" id="cb39-16" data-line-number="16">    <span class="dt">color =</span> <span class="op">~</span><span class="kw">factpal</span>(scientificName),</a>
-<a class="sourceLine" id="cb39-17" data-line-number="17">    <span class="dt">stroke =</span> <span class="ot">FALSE</span>, <span class="dt">fillOpacity =</span> <span class="fl">0.5</span></a>
-<a class="sourceLine" id="cb39-18" data-line-number="18">  ) </a></code></pre></div>
+<div class="sourceCode" id="cb35"><html><body><pre class="r"><span class="no">pal</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/colorNumeric.html">colorBin</a></span>(
+  <span class="kw">palette</span> <span class="kw">=</span> <span class="st">"Blues"</span>,
+  <span class="no">no_na</span>$<span class="no">scientificName</span>,
+  <span class="kw">pretty</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+
+<span class="no">levs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">no_na</span>$<span class="no">scientificName</span>)
+<span class="no">factpal</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/colorNumeric.html">colorFactor</a></span>(<span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">topo.colors</a></span>(<span class="fl">5</span>), <span class="no">levs</span>)
+
+<span class="no">no_na</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">scientificName</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addCircleMarkers</a></span>(
+    ~<span class="no">decimalLongitude</span>,
+    ~<span class="no">decimalLatitude</span>,
+    <span class="kw">color</span> <span class="kw">=</span> ~<span class="fu">factpal</span>(<span class="no">scientificName</span>),
+    <span class="kw">stroke</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">fillOpacity</span> <span class="kw">=</span> <span class="fl">0.5</span>
+  )</pre></body></html></div>
 </div>
 <div id="set-view-width" class="section level3">
 <h3 class="hasAnchor">
 <a href="#set-view-width" class="anchor"></a>Set view Width</h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">pal &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric">colorBin</a></span>(</a>
-<a class="sourceLine" id="cb40-2" data-line-number="2">  <span class="dt">palette =</span> <span class="st">"Blues"</span>,</a>
-<a class="sourceLine" id="cb40-3" data-line-number="3">  no_na<span class="op">$</span>scientificName,</a>
-<a class="sourceLine" id="cb40-4" data-line-number="4">  <span class="dt">pretty =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb40-6" data-line-number="6">levs &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(no_na<span class="op">$</span>scientificName)</a>
-<a class="sourceLine" id="cb40-7" data-line-number="7">factpal &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/colorNumeric">colorFactor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/palettes">topo.colors</a></span>(<span class="dv">5</span>), levs)</a>
-<a class="sourceLine" id="cb40-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb40-9" data-line-number="9">no_na <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb40-10" data-line-number="10"><span class="st">  </span><span class="kw">group_by</span>(scientificName) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb40-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/leaflet">leaflet</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb40-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addTiles</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb40-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-layers">addCircleMarkers</a></span>(</a>
-<a class="sourceLine" id="cb40-14" data-line-number="14">    <span class="op">~</span>decimalLongitude, </a>
-<a class="sourceLine" id="cb40-15" data-line-number="15">    <span class="op">~</span>decimalLatitude,</a>
-<a class="sourceLine" id="cb40-16" data-line-number="16">    <span class="dt">color =</span> <span class="op">~</span><span class="kw">factpal</span>(scientificName),</a>
-<a class="sourceLine" id="cb40-17" data-line-number="17">    <span class="dt">stroke =</span> <span class="ot">FALSE</span>, <span class="dt">fillOpacity =</span> <span class="fl">0.5</span></a>
-<a class="sourceLine" id="cb40-18" data-line-number="18">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb40-19" data-line-number="19"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-methods">setView</a></span>( <span class="dt">lng =</span> <span class="dv">-100</span>,</a>
-<a class="sourceLine" id="cb40-20" data-line-number="20">            <span class="dt">lat =</span> <span class="dv">20</span>,</a>
-<a class="sourceLine" id="cb40-21" data-line-number="21">            <span class="dt">zoom =</span> <span class="dv">11</span> ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb40-22" data-line-number="22"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/leaflet/topics/map-methods">setMaxBounds</a></span>( <span class="dt">lng1 =</span> <span class="dv">-100</span>,</a>
-<a class="sourceLine" id="cb40-23" data-line-number="23">                <span class="dt">lat1 =</span> <span class="fl">19.432241</span>,</a>
-<a class="sourceLine" id="cb40-24" data-line-number="24">                <span class="dt">lng2 =</span> <span class="dv">-98</span>,</a>
-<a class="sourceLine" id="cb40-25" data-line-number="25">                <span class="dt">lat2 =</span> <span class="dv">20</span> )</a></code></pre></div>
+<div class="sourceCode" id="cb36"><html><body><pre class="r"><span class="no">pal</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/colorNumeric.html">colorBin</a></span>(
+  <span class="kw">palette</span> <span class="kw">=</span> <span class="st">"Blues"</span>,
+  <span class="no">no_na</span>$<span class="no">scientificName</span>,
+  <span class="kw">pretty</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+
+<span class="no">levs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">no_na</span>$<span class="no">scientificName</span>)
+<span class="no">factpal</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/colorNumeric.html">colorFactor</a></span>(<span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">topo.colors</a></span>(<span class="fl">5</span>), <span class="no">levs</span>)
+
+<span class="no">no_na</span> <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">scientificName</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addCircleMarkers</a></span>(
+    ~<span class="no">decimalLongitude</span>,
+    ~<span class="no">decimalLatitude</span>,
+    <span class="kw">color</span> <span class="kw">=</span> ~<span class="fu">factpal</span>(<span class="no">scientificName</span>),
+    <span class="kw">stroke</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">fillOpacity</span> <span class="kw">=</span> <span class="fl">0.5</span>
+  ) <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setView</a></span>( <span class="kw">lng</span> <span class="kw">=</span> -<span class="fl">100</span>,
+            <span class="kw">lat</span> <span class="kw">=</span> <span class="fl">20</span>,
+            <span class="kw">zoom</span> <span class="kw">=</span> <span class="fl">11</span> ) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-methods.html">setMaxBounds</a></span>( <span class="kw">lng1</span> <span class="kw">=</span> -<span class="fl">100</span>,
+                <span class="kw">lat1</span> <span class="kw">=</span> <span class="fl">19.432241</span>,
+                <span class="kw">lng2</span> <span class="kw">=</span> -<span class="fl">98</span>,
+                <span class="kw">lat2</span> <span class="kw">=</span> <span class="fl">20</span> )</pre></body></html></div>
 </div>
 <div id="extra-map-color-options-base-maps" class="section level3">
 <h3 class="hasAnchor">
@@ -364,8 +392,8 @@
 <h2 class="hasAnchor">
 <a href="#mapping-a-tree-to-space" class="anchor"></a>Mapping a tree to space</h2>
 <p>We will need one package we haven’t used yet, Liam Revell’s Phytools.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/remote-reexports">install_github</a></span>(<span class="st">"liamrevell/phytools"</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(phytools)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><html><body><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"liamrevell/phytools"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb38"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">phytools</span>)</pre></body></html></div>
 <pre><code>## Loading required package: ape</code></pre>
 <pre><code>## Loading required package: maps</code></pre>
 <pre><code>## 
@@ -382,58 +410,36 @@
 </ol>
 <p>You may have noticed that the GBIF package includes citation information in the scientificName column. We will need to remove that. To do this, let’s try the <code>strsplit</code> function. This function splits a character string on a defined character and returns a vector of the elements in that character string.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">my_string =<span class="st"> "This is my string"</span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2">split_up &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strsplit">strsplit</a></span>(my_string, <span class="st">" "</span>)</a>
-<a class="sourceLine" id="cb47-3" data-line-number="3">split_up</a></code></pre></div>
+<div class="sourceCode" id="cb43"><html><body><pre class="r"><span class="no">my_string</span> <span class="kw">=</span> <span class="st">"This is my string"</span>
+<span class="no">split_up</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span>(<span class="no">my_string</span>, <span class="st">" "</span>)
+<span class="no">split_up</span></pre></body></html></div>
 <pre><code>## [[1]]
 ## [1] "This"   "is"     "my"     "string"</code></pre>
 <p>Try indexing this object. What do you need to do to access data? Now, with a partner, make this iterable across every row in the <code>scientificName</code> column. Then, unite the split objects into one new column called <code>genusSpecies</code>.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">split_names &lt;-<span class="st"> </span>no_na <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">mutate</span>(<span class="dt">genus =</span> <span class="kw">map_chr</span>(scientificName, <span class="cf">function</span>(s) <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strsplit">strsplit</a></span>(s, <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">1</span>]))<span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">map_chr</span>(scientificName, <span class="cf">function</span>(s) <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/strsplit">strsplit</a></span>(s, <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>])) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb49-3" data-line-number="3"><span class="kw">unite</span>(<span class="dt">col =</span> genusSpecies, genus, species)</a></code></pre></div>
+<div class="sourceCode" id="cb45"><html><body><pre class="r"><span class="no">split_names</span> <span class="kw">&lt;-</span> <span class="no">no_na</span> <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">genus</span> <span class="kw">=</span> <span class="fu">map_chr</span>(<span class="no">scientificName</span>, <span class="kw">function</span>(<span class="no">s</span>) <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span>(<span class="no">s</span>, <span class="st">" "</span>)<span class="kw">[[</span><span class="fl">1</span>]][<span class="fl">1</span>]))<span class="kw">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">species</span> <span class="kw">=</span> <span class="fu">map_chr</span>(<span class="no">scientificName</span>, <span class="kw">function</span>(<span class="no">s</span>) <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span>(<span class="no">s</span>, <span class="st">" "</span>)<span class="kw">[[</span><span class="fl">1</span>]][<span class="fl">2</span>])) <span class="kw">%&gt;%</span>
+<span class="fu">unite</span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">genusSpecies</span>, <span class="no">genus</span>, <span class="no">species</span>)</pre></body></html></div>
 <p>If you look at the data, there are some obviously mistaken values in there. For example, BOLD is not an ant species. Let’s drop that.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co"># Use ROTL to resolve names</span></a>
-<a class="sourceLine" id="cb50-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb50-3" data-line-number="3">no_bold &lt;-<span class="st"> </span>split_names[ <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grep</a></span>(<span class="st">"BOLD"</span>, split_names<span class="op">$</span>genusSpecies, <span class="dt">invert =</span> <span class="ot">TRUE</span>) , ]</a></code></pre></div>
+<div class="sourceCode" id="cb46"><html><body><pre class="r"><span class="co"># Use ROTL to resolve names</span>
+
+<span class="no">no_bold</span> <span class="kw">&lt;-</span> <span class="no">split_names</span>[ <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span>(<span class="st">"BOLD"</span>, <span class="no">split_names</span>$<span class="no">genusSpecies</span>, <span class="kw">invert</span> <span class="kw">=</span> <span class="fl">TRUE</span>) , ]</pre></body></html></div>
 <p>We also ended up with far more ant taxa than I thought. What a nice problem to have! But let’s filter down to, say, five of them:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">a_couple_ants &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Martialis_heureka"</span>, <span class="st">"Atta_mexicana"</span>, <span class="st">"Atta_cephalotes"</span>, <span class="st">"Atta_sexdens"</span>, <span class="st">"Atta_Fabricius"</span>)</a>
-<a class="sourceLine" id="cb51-2" data-line-number="2">subset_data &lt;-<span class="st"> </span>no_bold <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(genusSpecies <span class="op">%in%</span><span class="st"> </span>a_couple_ants)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><html><body><pre class="r"><span class="no">a_couple_ants</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Martialis_heureka"</span>, <span class="st">"Atta_mexicana"</span>, <span class="st">"Atta_cephalotes"</span>, <span class="st">"Atta_sexdens"</span>, <span class="st">"Atta_Fabricius"</span>)
+<span class="no">subset_data</span> <span class="kw">&lt;-</span> <span class="no">no_bold</span> <span class="kw">%&gt;%</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">genusSpecies</span> <span class="kw">%in%</span> <span class="no">a_couple_ants</span>)</pre></body></html></div>
 <p>Now, let’s use ROTL to make sure we don’t have spelling errors.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">reconciled_names &lt;-<span class="st"> </span>rotl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rotl/topics/tnrs_match_names">tnrs_match_names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>(subset_data<span class="op">$</span>genusSpecies))</a>
-<a class="sourceLine" id="cb52-2" data-line-number="2">good_names &lt;-<span class="st">  </span>reconciled_names <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="st">  </span><span class="kw">drop_na</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb48"><html><body><pre class="r"><span class="no">reconciled_names</span> <span class="kw">&lt;-</span> <span class="kw pkg">rotl</span><span class="kw ns">::</span><span class="fu"><a href="https://docs.ropensci.org/rotl/reference/tnrs_match_names.html">tnrs_match_names</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(<span class="no">subset_data</span>$<span class="no">genusSpecies</span>))
+<span class="no">good_names</span> <span class="kw">&lt;-</span>  <span class="no">reconciled_names</span> <span class="kw">%&gt;%</span>
+  <span class="fu">drop_na</span>()</pre></body></html></div>
 <p>Now, we will query our tree from OpenTree.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">tree &lt;-<span class="st"> </span>rotl<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rotl/topics/tol_induced_subtree">tol_induced_subtree</a></span>(good_names<span class="op">$</span>ott_id, <span class="dt">label=</span><span class="st">"name"</span>)</a></code></pre></div>
-<pre><code>## 
-Progress [----------------------------------] 0/26 (  0%) ?s
-Progress [================================] 26/26 (100%)  0s
-                                                            </code></pre>
-<pre><code>## Warning in collapse_singles(tr, show_progress): Dropping singleton
-## nodes with labels: mrcaott1682ott35311, mrcaott1682ott17752,
-## mrcaott1682ott7438, mrcaott1682ott4706, mrcaott4706ott5525,
-## mrcaott5525ott48019, mrcaott5525ott8038, mrcaott8038ott8685,
-## mrcaott8685ott36581, mrcaott8685ott56535, mrcaott8685ott72729,
-## mrcaott8685ott86888, mrcaott86888ott129302, Attini, mrcaott114767ott114779,
-## mrcaott114779ott339738, mrcaott114779ott116619, mrcaott116619ott148996,
-## mrcaott148996ott1071522, mrcaott148996ott150184, mrcaott148996ott339763,
-## mrcaott148996ott409299, mrcaott409299ott709966, mrcaott409301ott997492,
-## Martialinae, Martialis</code></pre>
+<div class="sourceCode" id="cb49"><html><body><pre class="r"><span class="no">tree</span> <span class="kw">&lt;-</span> <span class="kw pkg">rotl</span><span class="kw ns">::</span><span class="fu"><a href="https://docs.ropensci.org/rotl/reference/tol_induced_subtree.html">tol_induced_subtree</a></span>(<span class="no">good_names</span>$<span class="no">ott_id</span>, <span class="kw">label</span><span class="kw">=</span><span class="st">"name"</span>)</pre></body></html></div>
 <p>Now, we must combine our GBIF data and our taxon names into a matrix, a two-dimensional data structure with fewer neat data parsing features than a dataframe or tibble. These structures are often preferred when speed is an issue. Matrices can only be one type, which means we must add the row names after generating the object.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">only_lat_long &lt;-<span class="st"> </span>subset_data <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(decimalLatitude, decimalLongitude) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb56-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">as.matrix</a></span>()</a>
-<a class="sourceLine" id="cb56-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb56-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/colnames">rownames</a></span>(only_lat_long) &lt;-<span class="st"> </span>subset_data<span class="op">$</span>genusSpecies</a></code></pre></div>
 <p>And the big reveal! Let’s overlay our OpenTree with our map:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(viridis)</a></code></pre></div>
-<pre><code>## Loading required package: viridisLite</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">cols&lt;-<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/setNames">setNames</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/viridis/topics/reexports">viridis</a></span>(<span class="dt">n=</span><span class="kw">Ntip</span>(tree))),</a>
-<a class="sourceLine" id="cb59-2" data-line-number="2">    tree<span class="op">$</span>tip.label)</a>
-<a class="sourceLine" id="cb59-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb59-4" data-line-number="4">obj&lt;-<span class="kw"><a href="https://www.rdocumentation.org/packages/phytools/topics/phylo.to.map">phylo.to.map</a></span>(tree,only_lat_long, <span class="dt">plot=</span><span class="ot">FALSE</span>, <span class="dt">direction=</span><span class="st">"rightwards"</span>)</a></code></pre></div>
-<pre><code>## objective: 6</code></pre>
-<pre><code>## objective: 6</code></pre>
+<div class="sourceCode" id="cb50"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">viridis</span>)
+<span class="no">cols</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/viridis/man/reexports.html">viridis</a></span>(<span class="kw">n</span><span class="kw">=</span><span class="fu">Ntip</span>(<span class="no">tree</span>))),
+    <span class="no">tree</span>$<span class="no">tip.label</span>)
+
+<span class="no">obj</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/phytools/man/phylo.to.map.html">phylo.to.map</a></span>(<span class="no">tree</span>,<span class="no">only_lat_long</span>, <span class="kw">plot</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="kw">direction</span><span class="kw">=</span><span class="st">"rightwards"</span>)</pre></body></html></div>
 <p>Oh no! What has gone wrong?</p>
 <p>This tree has several quirks. Have a look at the object and see if you can spot them.</p>
 <pre><code>
@@ -443,42 +449,27 @@ Progress [================================] 26/26 (100%)  0s
 - Not fully bifurcating
 </code></pre>
 <p>First, let’s resolve the polytomy issue. We will do this using Ape’s <code>multi2di</code> function, which arbitrarily resolves polytomies. In real life, you would probably want to think about this a little more.:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ape)</a>
-<a class="sourceLine" id="cb63-2" data-line-number="2">tree &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ape/topics/multi2di">multi2di</a></span>(tree)</a></code></pre></div>
 <p>We’ll also need to add some branch lengths. In our case, we will draw them from an exponential distribution. The exponential is often assumed to be a reasonable approximation for banch lengths - you’ll hear more about this if you take my systematics lab ;)</p>
 <p>In our case, we will use <code>rexp</code> to make the draws, and we will map them to a new attribute <code>edge.length</code> that is a standard attribute of the tree object. In reality, you would likely not want to do this for a publication quality analysis, and would want to estimate branch lengths from data. But being able to rescale branch lengths is a good skill for sensitivity and other similar analyses.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">tree<span class="op">$</span>edge.length &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Exponential">rexp</a></span>(tree<span class="op">$</span>Nnode<span class="op">*</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">tree<span class="op">$</span>edge.length</a></code></pre></div>
-<pre><code>## [1] 0.04547217 0.69441869 0.08736920 1.60691154 2.31540105 1.16900540</code></pre>
+<div class="sourceCode" id="cb52"><html><body><pre class="r"><span class="no">tree</span>$<span class="no">edge.length</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">rexp</a></span>(<span class="no">tree</span>$<span class="no">Nnode</span>*<span class="fl">2</span>)
+<span class="no">tree</span>$<span class="no">edge.length</span></pre></body></html></div>
 <p>Now let’s try that map again.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">plot_object&lt;-<span class="kw"><a href="https://www.rdocumentation.org/packages/phytools/topics/phylo.to.map">phylo.to.map</a></span>(tree,only_lat_long, <span class="dt">plot=</span><span class="ot">FALSE</span>, <span class="dt">direction=</span><span class="st">"rightwards"</span>)</a></code></pre></div>
-<pre><code>## objective: 6
-## objective: 6</code></pre>
-<pre><code>## objective: 4</code></pre>
+<div class="sourceCode" id="cb53"><html><body><pre class="r"><span class="no">plot_object</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/phytools/man/phylo.to.map.html">phylo.to.map</a></span>(<span class="no">tree</span>,<span class="no">only_lat_long</span>, <span class="kw">plot</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="kw">direction</span><span class="kw">=</span><span class="st">"rightwards"</span>)</pre></body></html></div>
 <p>Finally, we will actually plot to space.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(plot_object,<span class="dt">direction=</span><span class="st">"rightwards"</span>,<span class="dt">colors=</span>cols,<span class="dt">cex.points=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>,<span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb69-2" data-line-number="2">    <span class="dt">lwd=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">3</span>,<span class="dv">1</span>),<span class="dt">ftype=</span><span class="st">"i"</span>)</a></code></pre></div>
-<p><img src="09_GBIF_and_Location_files/figure-html/unnamed-chunk-31-1.png" width="700"></p>
+<div class="sourceCode" id="cb54"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">plot_object</span>,<span class="kw">direction</span><span class="kw">=</span><span class="st">"rightwards"</span>,<span class="kw">colors</span><span class="kw">=</span><span class="no">cols</span>,<span class="kw">cex.points</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>,<span class="fl">1</span>),
+    <span class="kw">lwd</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>,<span class="fl">1</span>),<span class="kw">ftype</span><span class="kw">=</span><span class="st">"i"</span>)</pre></body></html></div>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li>
-<a href="#geospatial-choose-your-own-adventure">GeoSpatial Choose Your Own Adventure</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#mapping-a-tree-to-space">Mapping a tree to space</a></li>
-      </ul>
-</li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -486,12 +477,14 @@ Progress [================================] 26/26 (100%)  0s
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
