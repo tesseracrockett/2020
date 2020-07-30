@@ -1,6 +1,6 @@
-Package: compbio2019
+Package: compbio2020
 Type: Package
-Title: Biological Data Analysis 2019
+Title: Biological Data Analysis 2020
 Version: 0.1.0
 Authors@R: person("April", "Wright", role = c("aut", "cre"),
 	email = "april.wright@selu.edu")
