@@ -116,15 +116,7 @@
 <h2 class="hasAnchor">
 <a href="#homework-one" class="anchor"></a>Homework One</h2>
 <p>This is going to be a low-stakes effort to get you comfortable with RStudio and RMarkdown. First, you’re going to download the RMarkdown Document for this homework. Copy and paste this command into the console of your RStudio instance.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="kw">url</span> <span class="kw">=</span> <span class="st">"https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/vignettes/HomeworkOne.Rmd"</span>, <span class="kw">destfile</span> <span class="kw">=</span> <span class="st">"/User/project/homeworks/HW1.Rmd"</span>)</pre></body></html></div>
-<pre><code>## Warning in download.file(url = "https://raw.githubusercontent.com/
-## BiologicalDataAnalysis2019/2020/master/vignettes/HomeworkOne.Rmd", : URL
-## https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/
-## vignettes/HomeworkOne.Rmd: cannot open destfile '/User/project/homeworks/
-## HW1.Rmd', reason 'No such file or directory'</code></pre>
-<pre><code>## Warning in download.file(url = "https://raw.githubusercontent.com/
-## BiologicalDataAnalysis2019/2020/master/vignettes/HomeworkOne.Rmd", : download
-## had nonzero exit status</code></pre>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(<span class="kw">url</span> <span class="kw">=</span> <span class="st">"https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/vignettes/HomeworkOne.Rmd"</span>, <span class="kw">destfile</span> <span class="kw">=</span> <span class="st">"/cloud/project/homeworks/HW1.Rmd"</span>)</pre></body></html></div>
 <p>Can you find where the file downloaded to? Look at the help entry for <code>download.file</code> if you aren’t sure.</p>
 <p>Open the file and answer these two questions:</p>
 <ol style="list-style-type: decimal">
@@ -132,13 +124,13 @@
 <li>(1pt) Where did your HW1.Rmd file download to?</li>
 </ol>
 <p>Next, we’re going to try to execute some code in an RMarkdown document. Press the green triangle.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">animals</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>)
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">animals</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"cat"</span>, <span class="st">"rat"</span>, <span class="st">"dog"</span>)
 <span class="no">weights</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">15</span>, <span class="fl">1</span>, <span class="fl">120</span>)
 <span class="no">animals</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>,<span class="fl">3</span>)]</pre></body></html></div>
 <pre><code>## [1] "cat" "dog"</code></pre>
 <p>What just happened? Annotate the above code with two comments (each worth one point) explaining the code.</p>
 <p>We can also embed plots in RMarkdown. The below code should embed a barplot. Not very useful, but let me know if you don’t see one show up in your file.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span>(<span class="kw">names.arg</span><span class="kw">=</span><span class="no">animals</span>, <span class="kw">height</span><span class="kw">=</span><span class="no">weights</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span>(<span class="kw">names.arg</span><span class="kw">=</span><span class="no">animals</span>, <span class="kw">height</span><span class="kw">=</span><span class="no">weights</span>)</pre></body></html></div>
 <p><img src="HomeworkOne_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>
 <div id="getting-to-know-you-all" class="section level2">
