@@ -5,6 +5,8 @@ output: html_document
 
 ## Homework One
 
+### Due Aug. 28th at 5pm. Simply write your answers in and save in the homeworks folder in your Rstudio.
+
 This is going to be a low-stakes effort to get you comfortable with RStudio and RMarkdown. First, you're going to download the RMarkdown Document for this homework. Copy and paste this command into the console of your RStudio instance.
 
 ```{r}
