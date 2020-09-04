@@ -9,9 +9,9 @@ Lectures will be posted the day before they are given by 5 pm.
 
 | Week | Topic | Posted | Due |
 |:----:|-------|--------|-----|
-| Week of Aug. 17 | [Introduction to RStudio](https://biologicaldataanalysis2019.github.io/2020/articles/00_Syllabus_and_Expectations.html) [and R](https://biologicaldataanalysis2019.github.io/2020/articles/01_Getting_Started_with_R.html)| Reflection Assignment | Nothing |
-| Week of Aug. 24 |  [Working with Data I](https://biologicaldataanalysis2019.github.io/2020/articles/02_Starting_with_Data.html) | Homework One | Reflection Assignment | 
-| Week of Aug. 31 | [Working with Data II](https://biologicaldataanalysis2019.github.io/2020/articles/03_Manipulating_Data.html) | Project One | Homework One  | 
+| Week of Aug. 17 | [Introduction to RStudio](https://biologicaldataanalysis2019.github.io/2020/articles/00_Syllabus_and_Expectations.html) [and R](https://biologicaldataanalysis2019.github.io/2020/articles/01_Getting_Started_with_R.html)| [Reflection Assignment](https://biologicaldataanalysis2019.github.io/2020/articles/HomeworkOne.html) | Nothing |
+| Week of Aug. 24 |  [Working with Data I](https://biologicaldataanalysis2019.github.io/2020/articles/02_Starting_with_Data.html) | [Homework Two](https://biologicaldataanalysis2019.github.io/2020/articles/HomeworkTwo.html) | Reflection Assignment | 
+| Week of Aug. 31 | [Working with Data II](https://biologicaldataanalysis2019.github.io/2020/articles/03_Manipulating_Data.html) | Project One | [Homework Two](https://biologicaldataanalysis2019.github.io/2020/articles/HomeworkTwo.html)  | 
 | Week of Sept. 7 | [Visualization](https://biologicaldataanalysis2019.github.io/2020/articles/04-plotting.html) | Homework Two | Project 1  | 
 | Week of Sep. 14 | [Project Structuring](https://wrightaprilm.rstudio.cloud/3e227dafceca4ee9abc1aa6092534fef/articles/05-Functions.html) | Homework Three | Homework Two  | 
 | Week of Sep. 21 | [Programming I](https://biologicaldataanalysis2019.github.io/2020/articles/06_Exploration_Setup.html) | Project II | Homework Three   | 

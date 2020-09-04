@@ -1,5 +1,5 @@
 ---
-title: "HomeworkTwo.Rmd"
+title: "Homework Two"
 output: html_document
 ---
 
