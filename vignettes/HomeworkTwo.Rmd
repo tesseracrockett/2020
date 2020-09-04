@@ -1,0 +1,102 @@
+---
+title: "HomeworkTwo.Rmd"
+output: html_document
+---
+
+# Homework One: Due Sept. 11 at 5 pm.
+
+First, download your homework. In your RStudio, enter:
+
+```{r}
+download.file(url = "https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/vignettes/HomeworkTwo.Rmd", destfile = "/cloud/project/homeworks/HW2.Rmd")
+```
+
+Your homework will now be located in a directory called `homeworks`.
+
+
+In your RStudio interface, you will note that there is now a "Homeworks" directory. In it, you will find "HomeworkTwo.Rmd". In your RStudio instance, open it.
+
+Each question will direct you to perform a task. Each question that expects code as an answer will have a space for you to enter the code. 
+
+You are welcome, and even encouraged, to work with a partner. I do ask, though, that every member submits their own homework. To submit your homework, simply save it. I will see it.
+
+
+## Question One - 1 point.
+
+Load in the surveys.csv data file, and save it to a variable called "surveys".
+
+```{r}
+#Enter your answer for Question 1 here
+
+```
+
+## Question Two - 1 point
+
+What is the mean hindfoot length? Show your work below:
+```{r}
+#Enter your answer for Question 2 here
+
+```
+
+## Question Three - 1 point
+
+Save the `hindfoot_length` column to its own variable, called `hindfoot_vector`.
+```{r}
+#Enter your answer for Question 3 here
+
+```
+
+## Question Four - 2 points
+
+Calculate the mean of the `hindfoot_vector`. Does it work? 
+```{r}
+#Enter your answer for Question 4 here
+
+```
+In your own words, why did it not work? 
+
+
+## Question Five - 1 point
+
+Test your idea about why it didn't work by writing some code that will fix the problem.
+```{r}
+#Enter your answer for Question 5 here
+
+```
+
+## Question Six - 2 points
+
+We included an example in class that was a little confusing. Can you explain, in your own words, why the code gives the result it does?
+
+```{r}
+animals <- c("mouse", "rat", "dog", "cat")
+animals %in% c("rat", "cat", "dog", "duck", "goat")
+
+```
+Enter your explanation here:
+
+## Question Seven - 2 points
+
+I have written some code to calculate the mean of the hindfoot. But it's not working! Correct my code. 
+
+```{r eval=FALSE}
+surveys <- read.csv("/cloud/project/data/surveys.csv")
+hindfoot_vector <- surveys[7]
+hindfoot_mean <- (sum(hindfoot_vector)/length(hindfoot_vector))
+```
+
+
+## For the Graduate Students
+
+Each of you sent in a spreadsheet to me. They looked good. They'll work. But I'd like each of you to think about the data in those spreadsheets.
+
+1. If your data are saved in Excel format, under the `File` menu in Excel, Save As -> csv. To keep it simple for now, if you have multiple worksheets in your Excel file, just pick a single one for now. Upload it to your RStudio Cloud and save in the data folder.
+
+2. Read it in with `read.csv`. Are the types of the columns appropriate? 
+
+
+3. Do your NA values read in appropriately? If you drop NAs from your dataframe, does the resultant dataframe seem to have the correct rows or columns dropped?
+
+4. Dates. Are they formatted consistently? If not, fix with `lubridate`. 
+
+5. What are you looking to do with this data? Make sure you actually want to do this task - you might see it again ;p
