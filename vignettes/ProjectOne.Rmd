@@ -7,6 +7,7 @@ output: html_document
 # Data Project One
 
 ## 100 points
+## Due Sept. 18 at midnight
 
 Below are the questions for the first data practical assignment. This project uses the "FossilAnts.csv" file, located in the data directory for the project. The point value of each question is denoted next to it. A blank cell is below each for your answer; feel free to create more blank cells as needed.
 
