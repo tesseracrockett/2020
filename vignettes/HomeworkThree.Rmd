@@ -1,0 +1,46 @@
+---
+title: "Homework3"
+output: html_document
+---
+
+# Due Sept 25. at 11:59 PM
+
+1. 1pt.  Use `download.file()` to download your homework. Save it in your homework directory as `HW3.RMD`.
+
+```{r}
+#download.file() command here
+```
+
+2. 1pt. Read in the surveys_complete.csv file using `read_csv`
+
+```{r}
+# Read in command here
+```
+
+3. 2pts. Make a violin plot. On the X-axis, use species_ids. On the Y-axis, hindfoot length.
+
+```{r}
+#Plot code here
+```
+
+4. 2 pts. Make a box plot of these data.
+
+```{r}
+
+#Plot code here
+
+```
+
+5. 2 pts. Which plot do you prefer? Why? 
+
+
+6. 2 pts. On the plot that you prefer, increase the X and Y axis labels to be comfortably readable a distance of 4 feet from your computer. Add a title to the plot.
+
+```{r}
+
+#code here
+```
+
+# Graduate students
+
+Plot a column(s) or grouped object of your choosing from your dataset. For example, if you have two columns that should be naturally plotted against each other (like snout-to-vent length vs weight), go ahead and do that. On the other hand, if you might need to group the data first (like grouping weight by field site), feel free to do that.
