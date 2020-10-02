@@ -1,9 +1,9 @@
 ---
-title: "Homework Three"
+title: "Homework Five"
 output: html_document
 ---
 
-# Homework Two: Due Nov. 1 at 5 pm.
+# Homework Two: Due Oct. 9 at 5 pm.
 
 First, download your homework. In your RStudio, fill in the below command:
 
