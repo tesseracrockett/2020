@@ -130,15 +130,15 @@
 <a href="#rnoaa" class="anchor"></a>rNOAA</h1>
 <p>In order to test our hypothesis, we are going to get some climate data from NOAA.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"rnoaa"</span>)</pre></body></html></div>
-<pre><code>## Installing package into '/tmp/Rtmp935zPw/temp_libpath53641f203e5'
+<pre><code>## Installing package into '/tmp/RtmpZsL3GV/temp_libpath4e076a09949'
 ## (as 'lib' is unspecified)</code></pre>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
-<pre><code>## ── Attaching packages ─────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.3     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ───────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Next, we will get an API key for accessing government data. Go to <a href="https://www.ncdc.noaa.gov/cdo-web/token">this</a> website to obtain one. We will save this key in a file called <code>.rprofile</code>. API keys are basically like passwords between ourselves and a website. They enable us to access data securely.</p>
@@ -150,10 +150,10 @@
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"lawn"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
 <p>Now we’ll try using it.</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"lawn"</span>)
-<span class="fu">lawn_bbox_polygon</span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(-<span class="fl">122.2047</span>, <span class="fl">47.5204</span>, -<span class="fl">122.1065</span>, <span class="fl">47.6139</span>)) <span class="kw">%&gt;%</span> <span class="no">view</span></pre></body></html></div>
+<span class="fu"><a href="https://docs.ropensci.org/lawn/reference/lawn_bbox_polygon.html">lawn_bbox_polygon</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(-<span class="fl">122.2047</span>, <span class="fl">47.5204</span>, -<span class="fl">122.1065</span>, <span class="fl">47.6139</span>)) <span class="kw">%&gt;%</span> <span class="no">view</span></pre></body></html></div>
 <p>How could you use Google Maps to get the information to make a box that covers Portal, AZ? Try it!</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="st">"lawn"</span>)
-<span class="fu">lawn_bbox_polygon</span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(-<span class="fl">114</span>, <span class="fl">32</span>, -<span class="fl">115</span>, <span class="fl">31</span>)) <span class="kw">%&gt;%</span> <span class="no">view</span></pre></body></html></div>
+<span class="fu"><a href="https://docs.ropensci.org/lawn/reference/lawn_bbox_polygon.html">lawn_bbox_polygon</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(-<span class="fl">114</span>, <span class="fl">32</span>, -<span class="fl">115</span>, <span class="fl">31</span>)) <span class="kw">%&gt;%</span> <span class="no">view</span></pre></body></html></div>
 <p>OK, let’s give those coordinates to rNOAA and see if we have weather stations in there.</p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r">ncdc_stations(extent = c(Your coordinates here!))</pre></body></html></div>
 <p>Does this work? If no, try expanding.</p>
