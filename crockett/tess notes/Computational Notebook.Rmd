@@ -67,6 +67,8 @@ rstudio-user@application-2678354-deployment-6956621-jhbrx:/cloud/project$ git co
     add = tell git what file we've edited/added to
     commit = tell git to save that file, we're committing to the work we've done
     push = put the code in the online repository
+-each commit has it's own unique code - on git, anything with green background is new code that has been added, red means it's been deleted
+- we have some initial code, we mess with it, then we have code version two, mess with it, code version 3 - this is a bad habit which is dangerous workflow - in git you have a managed workflow, your file name is overwritten and does not change, but you have your initial commit with it's own unique id, and each subsequent commit has it's own as well - you have one file in R, but all previous loads in git 
 
 ```{r cars}
 summary(cars)
