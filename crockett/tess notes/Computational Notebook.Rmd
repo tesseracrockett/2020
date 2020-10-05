@@ -1,0 +1,83 @@
+---
+title: "Computational Lab Notebook"
+author: "Tess"
+date: "9/28/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sept 23, 2020
+
+*Goal:* Plot DBH's from 2016 across all sites in diameters_clean
+
+*Worked* 
+ggplot(data = diameters_clean, mapping = aes(x = spp, y = year_2016)) + geom_boxplot() + labs(title = "2016 Diameters by Species", x = "Species" , y = "2016 Diameter (DBH)") + theme_bw() +theme(text = element_text(size = 20)) + theme(axis.text.x = element_text(angle = 90, size= 16))
+
+*Did not work*
+ggplot(data = diameters_clean, mapping = aes(x = site, y = year_2016)) + geom_boxplot() + labs(title = "2016 Diameters by Site", x = "Site" , y = "2016 Diameter (DBH)") + theme_bw() +theme(text = element_text(size = 20))
+Warning message:
+Continuous x aesthetic -- did you forget aes(group=...)? 
+
+also
+
+ggplot(data = diameters_clean, mapping = aes(x = site, y = year_2016, group = spp)) + geom_bar() + labs(title = "2016 Diameters by Site", x = "Site" , y = "2016 Diameter (DBH)") + theme_bw() +theme(text = element_text(size = 20))
+Error: stat_count() can only have an x or y aesthetic.
+
+## Sept. 28, 2020
+Bergman's rule relates to mammal body sizes and temps - develop a hypothesis about what we would expect to happen to mammalian body sizes if Bergmans rule is true? are there enough data to test this hypothesis in the surveys_complete? what additional data would we like/need?
+
+*Hypothesis* Mammalian size will decrease as climate change continues to warm the earth
+
+*Data wanted/needed* Need climate data, need mammal dimensions
+
+
+install notes - can be messy and mess things up or install incompletely
+install NOAA data, need to go to website to get API key in order to download large amounts of data
+paste noaa key into .rprofile found in project file
+
+  print.cache_info httr
+ means that code from pkg overrides base r code
+
+lawn_bbox_polygon(c(-114, 32, -115, 31)) %>% view()
+code allows you to pull up a chunk of the map by lat and long, use google maps to get lat and long for a place we haven't been - long first then lat
+
+temp_data <- meteo_tidy_ghcnd(stationid = "USW00003145", var = c("tmin", "tmax"))
+file min/max dates: 1982-01-01 / 2020-09-30
+
+## September 30, 2020
+lm used for linear model in R
+
+
+## October 5, 2020
+-revision management and data manipulation
+-signed up for github tesseracrockett (username)
+-logged into repository for our class, repository is a place for code of a project, all revisions go here
+-commits do = revisions/edits
+-fork the code = this makes a copy of the entire repository and saves to personal username, we now have copies of everthing under our usernames on github
+-learning to back up changes in R studio to get hub
+-move to terminal from console, it's more archaic, allows us to access file system of comp, directly access commands for comp that operating systems typically mask
+-use to tell revision management system who we are, in terminal type following to title ourselves for revision and tell it who we are 
+rstudio-user@application-2678354-deployment-6956621-jhbrx:/cloud/project$ git config --global user.name "Tess Crockett"
+rstudio-user@application-2678354-deployment-6956621-jhbrx:/cloud/project$ git config --global user.name "tessera.crockett@selu.edu"
+-adding code to repository 
+  workflow = add, commit, push 
+    add = tell git what file we've edited/added to
+    commit = tell git to save that file, we're committing to the work we've done
+    push = put the code in the online repository
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
