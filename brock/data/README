@@ -1,0 +1,3 @@
+Locality, life history, and capture data for Urspelerpes brucei
+Dimensions: 58 rows x 8 columns
+Columns: Stream = col_character(), SVL = col_double(), SG = col_double(), Sex = col_character(), Life_Stage = col_character(), Year = col_double(), Month = col_double(), Day = col_double()
