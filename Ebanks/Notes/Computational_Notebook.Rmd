@@ -32,6 +32,8 @@ When you click the **Knit** button a document will be generated that includes bo
 
 Trying revision management for the first time. 
 
+-{x} First push worked
+
 ## Ppt Notes:
 Adding code to a repository 
   - add -> commit -> push
