@@ -1,0 +1,19 @@
+---
+title: "FunctionReference.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+By Wednesday, Sept. 30, document one function we've used in class for 3 bonus points.
+
+Put your function on this table:
+
+| Function Name | Package, if any | Utility | Example  |
+|---------------|-----------------|---------|----------|
+| sum     | Base R    | Sum a range of numbers | sum(1:6) | 
+| mean    | Base R    | Average a vector of numbers | mean(c(1, 2, 3)) |
+| View    | Utils     | View a matrix-like object in spreadsheet-style | View(surveys_complete) |
+|
+|
