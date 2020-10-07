@@ -43,6 +43,10 @@ Adding code to a repository
     - Push puts the code in the online repository 
   
 
+## October 7, 2020
+
+
+
 
 
 ```{r cars}
