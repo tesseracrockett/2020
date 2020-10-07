@@ -1,0 +1,18 @@
+---
+title: "FunctionReference.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+By Wednesday, Sept. 30, document one function we've used in class for 3 bonus points.
+
+Put your function on this table:
+
+| Function Name | Package, if any | Utility | Example |
+|---------------|-----------------|---------|----------|
+| sum     | Base R    | Sum a range of numbers | sum(1:6) | 
+| unite | tidyr | unite two or more columns into one | unite(data, col, sep = "_")
+|
+|
