@@ -1,0 +1,280 @@
+---
+title: "ProjectOne"
+output: html_document
+---
+
+
+# Data Project One
+
+## 100 points
+## Due Sept. 18 at midnight
+
+Below are the questions for the first data practical assignment. This project uses the "FossilAnts.csv" file, located in the data directory for the project. The point value of each question is denoted next to it. A blank cell is below each for your answer; feel free to create more blank cells as needed.
+
+0. (5 pts) Create a directory called `projects_lastname` (sub your last name for lastname), and in it, a subdirectory called `project_one_lastname`. Use `download.files` to download the instructions: 
+https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/vignettes/ProjectOne.Rmd
+
+and the data 
+
+https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/projects/project_one/data/FossilAnts.csv
+
+#this worked, done.
+
+1. 5 pts. Import the `tidyverse` package and load the data using `read_csv`. The data for this part of the practical is located in the data directory. Save the data in a variable called `project_dat`. Print the data to the screen to ensure it loaded correctly.
+
+```{r}
+#Enter Your Answer Here
+ library(tidyverse)
+ project_dat <- read_csv("/cloud/project/projects_Mahoney/project_one_Mahoney/FossilAnts.csv")
+ head(project_dat)
+```
+
+2. (5pts) Check the datatypes of each column. There is a column called reference number. This is a static identifier - it should not be changed, and is an indexer used to identify this specimen uniquely. Do we want to treat it as an integer (this is an opinion question - answers may vary).
+
+```
+# Answer here > str(project_dat)
+tibble [789 × 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ taxon       : chr [1:789] "Agroecomyrmex_duisburgi" "Eulithomyrmex_rugosus" "Eulithomyrmex_striatus" "Ambyloponinae" ...
+ $ reference_no: num [1:789] 44414 4971 4971 59088 53165 ...
+ $ subfamily   : chr [1:789] "Agroecomyrmecinae" "Agroecomyrmecinae" "Agroecomyrmecinae" "Ambyloponinae" ...
+ $ Tribe       : chr [1:789] "None" "None" "None" "None" ...
+ $ Genus       : chr [1:789] "Agroecomyrmex" "Eulithomyrmex" "Eulithomyrmex" "None" ...
+ $ Fossil      : chr [1:789] "Yes" "Yes" "Yes" "Yes" ...
+ $ min_ma      : num [1:789] 33.9 33.9 33.9 20.4 20.4 ...
+ $ max_ma      : num [1:789] 38 37.2 37.2 23 23 ...
+ $ Notes       : chr [1:789] "Note" "Note" "Note" "Note" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   taxon = col_character(),
+  ..   reference_no = col_double(),
+  ..   subfamily = col_character(),
+  ..   Tribe = col_character(),
+  ..   Genus = col_character(),
+  ..   Fossil = col_character(),
+  ..   min_ma = col_double(),
+  ..   max_ma = col_double(),
+  ..   Notes = col_character()
+  .. )
+This has reference_no as a numerical value. For R purposes I think that reference_no should be changed to character strings. These are labels and not measurements, thus should be changed. This protects them from being accidentally changed somehow.
+```
+
+3. (5 pts) Change the datatype of the reference number column to character. Hint: use mutate. Look at the `as.character` function.
+
+```{r}
+#Answer Here
+ project_dat <- project_dat %>% 
+ mutate(reference_no = as.character(reference_no))
+ str(project_dat)
+```
+
+4. (5 pts) Look at your data. What are the missing data values? In particular, have a look at the `Tribe` column. In your opinion, are these intelligent missing values for the dataset? Why or why not? If not, how would you like to change them? 
+
+```
+#Answer here
+> head(project_dat)
+I entered that hoping there would be empty points there and it worked out. For missing values, they are labeled None. Personally I think that is confusing when looking at the full sppreadsheet. I would change them to NA so it is more starkly contrast to the tribe names and is clearly missing data. 
+
+```
+
+5. (5pts) Now do it - replace your missing values with these more logical missing values. Look at the function `na_if`, which replaces nonstandard NA values. Please first look at the help page for `na_if`.
+
+```{r}
+#Answer here
+# help(na_if)
+project_dat <- project_dat %>% 
+ mutate(Tribe = na_if(Tribe, "None"))
+```
+6. (5 points) Are there any columns in your dataset that contain two pieces of data? If so, identify them.
+
+```
+# Answer here
+Under taxon, some of the data points are the specific epithet and some are the genus, which are two separate things. 
+```
+
+7. (5pts) Please look at the help page for the `separate` function.
+
+```{r}
+# Show how you would pull up the help
+ help(separate)
+```
+
+
+7. (10 pts) How could you separate one column into two? 
+
+```{r}
+#Answer here
+ project_dat %>% 
+ separate(taxon, into = c("Genus", "Species"), sep = "(_)")
+```
+
+Next, we will test a hypothesis. Your hypothesis is that there are more specimens in the 75 million years ago (mya) - 100 mya interval than the 30 mya to the present interval.
+
+8. (5 pts) Write out the steps you would take to address this question. Will you need to split up the data? Will you need to group the data based on the values in some column? 
+
+```
+#Answer Here
+
+First I would plan on separating these into two named variables, younger_interval and older_interval. Then for each interval I would filter min_ma with younger_interval being objects over 0 and under 30, and older_interval being objects between 70-100. Then I would perform count on each to compare them.
+```
+
+9. (15 pts) Perform the operations you described in (8). 
+
+```{r}
+#Answer here
+ younger_interval <- project_dat %>% 
+ filter(min_ma < 30) %>% 
+ filter(min_ma > 0)
+   older_interval <- project_dat %>% 
+ filter(min_ma > 75) %>% 
+ filter(min_ma < 100)
+ count(younger_interval)
+# A tibble: 1 x 1
+```
+n
+  <int>
+1   350
+> count(older_interval)
+# A tibble: 1 x 1
+      n
+  <int>
+1    51
+
+
+10. (5 pts) Do the results of your code support the hypothesis? 
+
+```
+#Answer here 
+No, this hypothesis would be rejected based on my results. 
+```
+
+
+11. (10 pts) Save the dataframe with the split columns into a new directory called `project_one_data_output_lastname`. Save it as a csv file called "column_separated.csv" 
+
+```{r}
+# Answer here
+ write.csv(project_dat, "/cloud/project/projects_Mahoney/project_one_Mahoney/project_one_data_output_Mahoney/column_separated.csv", row.names = TRUE)
+```
+
+12. (10 pts) What is the most numerous subfamily? Print the subfamilies in descnding order.
+```{r}
+#Answer here
+ project_dat %>% 
+ count(subfamily) %>% 
+ arrange(desc(n))
+
+
+  
+  
+```
+
+## Grad Students
+
+Do the undergrad part of the exam. It's actually kind of hard?  Find your name below for the additional part of the exam to complete.
+
+
+### Victoria 
+
+I'm going to have you do something a little different. You're going to reshape your dataset. Ultimately, you will have four columns: Treatment, Specimen, Date Entered, Days until death. The final columns should be how many days the animal lived before death. If it was entered 3/13/20 and made it to 3/15/20, put '2'. 
+
+Export as a CSV and put on your RStudio server. Which treatment had the highest average days until death?
+
+```{r}
+ Hyalella_data <- read.csv("/cloud/project/projects_Mahoney/Condensed_Data.csv")
+ Hyalella_data
+ Hyalella_data <- Hyalella_data %>% 
+ filter(!is.na(Days.Until.Death))
+ Hyalella_data
+ Treatment_0.0 <- Hyalella_data %>% 
+ filter(Treatment == 0.0) 
+ Treatment_0.0 <- Treatment_0.0[, 4]
+ mean(Treatment_0.0)
+ Treatment_0.5 <- Hyalella_data %>% 
+ filter(Treatment == 0.5)
+ Treatment_0.5 <- Treatment_0.5[, 4]
+ mean(Treatment_0.5)
+ Treatment_2.0 <- Hyalella_data %>% 
+ filter(Treatment == 2.0)
+ Treatment_2.0 <- Treatment_2.0[, 4]
+ mean(Treatment_2.0)
+ Treatment_4.0 <- Hyalella_data %>% 
+ filter(Treatment == 4.0)
+ Treatment_4.0 <- Treatment_4.0[, 4]
+ mean(Treatment_4.0)
+ Treatment_6.0 <- Hyalella_data %>% 
+ filter(Treatment == 6.0)
+ Treatment_6.0 <- Treatment_6.0[, 4]
+ mean(Treatment_6.0)
+ Treatment_9.0 <- Hyalella_data %>% 
+ filter(Treatment == 9.0)
+ Treatment_9.0 <- Treatment_9.0[, 4]
+ mean(Treatment_9.0)
+
+
+
+#Treatment 6.0 had the highest average days to death. 
+ #AMW: This is a fine way to do this, but have a look at the below code
+```
+
+```{r}
+Hyalella_data %>% 
+  group_by(Treatment) %>% 
+  summarize(mean = mean(Days.Until.Death))
+```
+
+### Josh
+
+1. I'm looking at the SirenSpecimenRecords spreadsheet. Make sure when you read it in, the blanks read in as NA. If not, replace them.
+```{r}
+
+
+```
+
+2. Split your species column into genus and species columns, but retain what you're currently calling species as "Specific Epithet".
+```{r}
+
+
+```
+
+3. Save in your project one folder as "josh_modified_data.csv"
+```{r}
+
+
+```
+
+### Elisabeth
+
+These spreadsheets are great. Very consistent.
+
+1. What is the most commonly-collected species on here. I'm not sure if any of the species names are shared across genera (ie Genus_species, Genus1_species). If so, you might consider using `unite()` to put the genus and species columns into one cell before counting.
+```{r}
+
+
+```
+
+2. Which site has the most observations?
+```{r}
+
+
+```
+
+## Brittany and Claire
+
+1. There is a package loaded we haven't used yet, `readexl`
+
+```
+library(readxl)
+```
+
+See if you can read in the `measurements` spreadsheet in your Excel worksheet. Pick two or three columns in the `ratios` spreadsheet and see if you can reproduce them in R here:
+
+```{r}
+
+
+```
+
+2. Save the measurements spreadsheet as a csv file.
+
+```{r}
+
+
+```
