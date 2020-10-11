@@ -15,5 +15,6 @@ Put your function on this table:
 | sum     | Base R    | Sum a range of numbers | sum(1:6) | 
 | mean    | Base R    | Average a vector of numbers | mean(c(1,2,3)) | 
 | select  | dplyr     | selects variables in a data frame (pulls full columns) | select(sirens, Specific_Epithet)
+| View    | Base R    | Pulls up spreadsheet like data in file window| View("filename")|
 
 
