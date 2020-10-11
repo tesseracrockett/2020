@@ -13,6 +13,7 @@ Put your function on this table:
 | Function Name | Package, if any | Utility | Example |
 |---------------|-----------------|---------|----------|
 | sum     | Base R    | Sum a range of numbers | sum(1:6) | 
+| str     | Base R    | Describe the structure of a data frame    | str(surveys_complete)   |
 | mean    | Base R    | Average a vector of numbers | mean(c(1,2,3)) | 
 | select  | dplyr     | selects variables in a data frame (pulls full columns) | select(sirens, Specific_Epithet)
 | View    | Base R    | Pulls up spreadsheet like data in file window| View("filename")|
