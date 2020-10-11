@@ -1,0 +1,14 @@
+****Des' Allomends 2016-2019 Full site diameters of all species present broken down by site and         station
+
+
+****dim(Diameters_2019_csv_) [1,012 × 8]
+
+
+**** Coloums:  SITE = col_double(),
+  ..           STAT = col_character(),
+  ..           TAG = col_double(),
+  ..           SPP = col_character(),
+  ..           diameter_2016 = col_double(),
+  ..           diameter_2017 = col_double(),
+  ..           diameter_2018 = col_double(),
+  ..           diameter_2019 = col_double()
