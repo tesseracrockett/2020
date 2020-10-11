@@ -10,12 +10,16 @@ articles:
   05-Functions: 05-Functions.html
   06_Exploration_Setup: 06_Exploration_Setup.html
   07_Exploration_Hands_On: 07_Exploration_Hands_On.html
+  08_linear_models: 08_linear_models.html
   09_GBIF_and_Location: 09_GBIF_and_Location.html
   FunctionReference: FunctionReference.html
+  HW5: HW5.html
+  HomeworkFive: HomeworkFive.html
   HomeworkFour: HomeworkFour.html
   HomeworkOne: HomeworkOne.html
   HomeworkThree: HomeworkThree.html
   HomeworkTwo: HomeworkTwo.html
   ProjectOne: ProjectOne.html
-last_built: 2020-10-02T18:00Z
+  ProjectTwo: ProjectTwo.html
+last_built: 2020-10-09T19:33Z
 
