@@ -1,0 +1,63 @@
+---
+title: "Homework Three"
+output: html_document
+---
+
+# Homework Two: Due Nov. 1 at 5 pm.
+
+First, download your homework. In your RStudio, fill in the below command:
+
+```{r, eval = FALSE}
+download.file()
+
+```
+
+# Question One (1 pts):
+We're going to work with the NOAA data again. This time, I'm going to have you go to [the raw data](https://www.ncei.noaa.gov/data/global-historical-climatology-network-daily/access/) and download the data for USW00003145. Upload it to your data directory.  
+
+
+# Question Two (1 pts)
+
+Read in the data
+
+```{r}
+# Answer here
+
+```
+
+# Question 3 (3 pts)
+
+Merge this dataframe to the NOAA dataframe we save from Monday's class. 
+
+Hint: You may need to specify "by" arguments. Possibly multiple.
+```{r}
+
+```
+
+# Question 4 (2 pts)
+
+Drop any rows for which the "TMAX_ATTRIUBTES" or "TMIN_ATTRIBUTES" contain an X
+```{r}
+```
+
+# Question 5 (1 pts)
+
+How many rows did we lose in this quality control? 
+
+```{r}
+
+```
+
+# Question 6 (2 points)
+
+Merge your filtered data to the surveys_complete dataset and try replotting it. Did this make a difference to our conclusions from Wednesday?
+
+```{r}
+
+```
+
+
+## MS Students:
+
+For last week, I had you populate function templates in your personal directory. I'm going to update this homework Monday when I've had a chance to look at them.
+
