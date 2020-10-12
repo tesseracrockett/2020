@@ -139,6 +139,12 @@
 <p>By Wednesday, Sept. 30, document one function we’ve used in class for 3 bonus points.</p>
 <p>Put your function on this table:</p>
 <table class="table">
+<colgroup>
+<col width="29%">
+<col width="33%">
+<col width="17%">
+<col width="19%">
+</colgroup>
 <thead><tr class="header">
 <th>Function Name</th>
 <th>Package, if any</th>
@@ -156,19 +162,31 @@
 <td>mean</td>
 <td>Base R</td>
 <td>Average a vector of numbers</td>
-<td>mean(c(1,2,3))</td>
+<td>mean(c(1, 2, 3))</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>str</td>
+<td>Base R</td>
+<td>Describe the structure of a data frame</td>
+<td>str(surveys_complete)</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>select</td>
+<td>dplyr</td>
+<td>selects variables in a data frame (pulls full columns)</td>
+<td>select(sirens, Specific_Epithet)</td>
+</tr>
+<tr class="odd">
+<td>View</td>
+<td>Utils</td>
+<td>View a matrix-like object in spreadsheet-style</td>
+<td>View(surveys_complete)</td>
+</tr>
+<tr class="even">
+<td>unite</td>
+<td>tidyr</td>
+<td>unite two or more columns into one</td>
+<td>unite(data, col, sep = "_")</td>
 </tr>
 </tbody>
 </table>
