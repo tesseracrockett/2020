@@ -1,0 +1,55 @@
+---
+title: "notes 09-09"
+author: "Tess"
+date: "9/9/2020"
+output: html_document
+reshaping data in R - spreading and gathering the data
+-create object
+surveys_gw <-
+-then pipe it in, filter, group, summarize
++ filter (!is.na(weight)) %>% 
++ group_by(genus, plot_id) %>%  
++ summarize (mean_weight = mean(weight))
+
+-then use new spread function - see course webpage for better understanding under data manipulation 
+- the key is the new column header, below all genus become their own column, and each cell is populated with mean_weight - good for display
+surveys_spread <- surveys_gw %>% 
++ spread (key =genus, value = mean_weight)
+> surveys_spread
+EX:
+# A tibble: 24 x 11
+   plot_id Baiomys Chaetodipus Dipodomys Neotoma Onychomys Perognathus Peromyscus Reithrodontomys
+     <dbl>   <dbl>       <dbl>     <dbl>   <dbl>     <dbl>       <dbl>      <dbl>           <dbl>
+ 1       1    7           22.2      60.2    156.      27.7        9.62       22.2     
+- add fill=o to fill na with 0 instead
++ spread (key = genus, value =mean_weight, fill=0)
+--for gather - operates like spread but opposite
+surveys_gather <- surveys_spread %>% 
++ gather (key = genus, value =mean_weight, -plot_id) -- the - on plot_id doesn't remove the column from data frame just doesn't use it to sort by this variable
+--wide tables are tables that have broken out a column and turned each uniqure variable in that column into it's own columns
+--you can pre-filter data based on what you want to get back - this below actually excludes those genus
+ gather (key =genus, value=mean_weight, Baiomys:Neotoma)
+--n_distinct tells you how many unique objects are in a column and counts those individuals
+--check out pivot_wider because spread is being retired 
+
+EXPORTING DATA
+-always want to treat data as read only - you do calcs and manipulate data, but you never write changed data back to the original sheet, need to preserve integrity of original data
+-always host external copy of data from comps
+--removing na's from final data set
+dim(surveys)
+[1] 34786    13
+> surveys_complete <- surveys %>% 
++ filter(!is.na(weight), !is.na(hindfoot_length), !is.na(sex))
+> dim(surveys_complete)
+[1] 30676    13 - notice less rows
+--write_csv writes a new file, must tell it the name and where to go
+EX:
+  write_csv(surveys_complete, "data_output/surveys_complete.csv")
+-can write csv as easily as read them   
+--filter surveys complete down so that species_id only populates those species that fell into the species_count observations
+EX:
+surveys_reduced <- surveys_complete %>% 
++ filter (species_id %in% species_counts$species_id)
+- then can save this reduced down file by:
+write_csv(surveys_reduced, "data_output/surveys_reduced.csv")  
+--for grad students, ASK MASTERS PROFESSORS WHERE TO BACK DATA UP TO
