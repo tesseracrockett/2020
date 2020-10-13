@@ -17,5 +17,6 @@ Put your function on this table:
 | str     | Base R    | Describe the structure of a data frame    | str(surveys_complete)   |
 | select  | dplyr     | selects variables in a data frame (pulls full columns) | select(sirens, Specific_Epithet)
 | View    | Utils     | View a matrix-like object in spreadsheet-style | View(surveys_complete) |
-| unite | tidyr | unite two or more columns into one | unite(data, col, sep = "_")
+| unite | tidyr | unite two or more columns into one | unite(data, col, sep = "_") |
+| lm | Base R | Fit a linear model to data | lm(weight~hindfoot_length)
 
