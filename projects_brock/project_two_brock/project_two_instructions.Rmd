@@ -149,7 +149,7 @@ git commit "/cloud/project/projects_brock/project_two_brock/project_two_instruct
 
 ```
 #Commands here
-
+git push origin class
 ```
 
 3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
