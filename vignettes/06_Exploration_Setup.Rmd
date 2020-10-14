@@ -23,5 +23,121 @@ To test your hypothesis, are the data that you have sufficient? What other data 
 
 Sketch on one of the whiteboards (as a graph) what you think the relationship between the data you wish you had and one of the variables in our data might be.
 
+# rNOAA
+
+In order to test our hypothesis, we are going to get some climate data from NOAA.
+
+```{r}
+
+install.packages("rnoaa")
+
+```
+
+Next, we will get an API key for accessing government data. Go to [this](https://www.ncdc.noaa.gov/cdo-web/token) website to obtain one. We will save this key in a file called `.rprofile`.
+API keys are basically like passwords between ourselves and a website. They enable us to access data securely.
+
+Once this is complete, we can use the package. Here is the first command you will use:
+
+```{r, eval = FALSE}
+library(rnoaa)
+ncdc_locs(locationcategoryid='CITY', sortfield='name', sortorder='desc')
+```
+
+
+What information do you think you should get from this command? 
+
+We can get local weather, basically. But we don't really know what weather station we need! Let's see if we can find out. First, let's install the `lawn` package. 
+
+```{r, eval = FALSE}
+
+install.packages("lawn", dependencies = TRUE)
+```
+
+Now we'll try using it.
+
+```{r, eval = FALSE}
+
+library("lawn")
+lawn_bbox_polygon(c(-122.2047, 47.5204, -122.1065, 47.6139)) %>% view
+```
+
+How could you use Google Maps to get the information to make a box that covers Portal, AZ? Try it!
+
+
+```{r, eval = FALSE}
+
+library("lawn")
+lawn_bbox_polygon(c(-114, 32, -115, 31)) %>% view
+```
+
+OK, let's give those coordinates to rNOAA and see if we have weather stations in there.
+
+```{r, eval = FALSE}
+ncdc_stations(extent = c(Your coordinates here!))
+```
+
+Does this work? If no, try expanding.
+
+Now, once you have your base station, try pulling the data for it:
+
+```{r, eval = FALSE}
+ncdc(datasetid='NORMAL_DLY', stationid=?, datatypeid=?, startdate = ?, enddate = ?)
+
+```
+
+Have a look at the surveys data set to see when you should start and stop.
+
+We then found a good station and pulled the minimum and maximum temperatures for all dates in the database:
+
+```{r, eval = FALSE}
+
+temp_data <- meteo_tidy_ghcnd(stationid = "USW00003145", var = c("tmin", "tmax"))
+
+```
+
+And converted the temperatures to Fahrenheit while plotting them to get a sense of temperature variation over time: 
+
+```{r, eval = FALSE}
+
+ggplot(temp_data, mapping = aes(x = date, y=tmin*4/9)) + geom_point() 
+```
+
+
+And we fit a linear model to see if temperature was increasing over time:
+
+```{r, eval = FALSE}
+
+lm(date~tmax, data=temp_data)
+ggplot(temp_data, mapping = aes(x = date, y=(tmax*4/9)-32)) + geom_line() + geom_smooth(method='lm')
+write_csv(x = temp_data, "data_output/noaa_data.csv")
+```
+
+We will want to merge these data with the data from `surveys.csv` to look at mammal size trends over time. Which means we need a column on which to merge. Dates make sense. So then, we massaged the dates in `surveys.csv` into a more usable format.
+
+```{r, eval = TRUE}
+library(tidyverse)
+surveys <- read_csv("data_output/surveys_complete.csv")
+library(lubridate)
+new_surveys <- surveys %>%
+mutate(date = make_date(year, month, day))
+write_csv(x = new_surveys, "data_output/date_conversion.csv")
+```
+
+
+Now, we'll merge the two data sources. Have a look at the `merge` function. Try it.
+
+```{r, eval = TRUE}
+noaa_data <- read_csv("data_output/noaa_data.csv")
+merged_data <- merge(noaa_data , new_surveys)
+```
+
+
+
+Next, plot an animal body size measure by temp. Is there a relationship? What about body size measures by date?
+
+```{r, eval = TRUE}
+ggplot(merged_data, mapping = aes(x = tmin, y = hindfoot_length)) + geom_point(aes(alpha = 0.1, color = sex)) + facet_grid(cols  = vars(species_id)) + geom_smooth(aes(group=sex), method='lm')
+```
+
 
 

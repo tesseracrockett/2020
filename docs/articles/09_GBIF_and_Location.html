@@ -78,10 +78,37 @@
       <a href="../articles/07_Exploration_Hands_On.html">Exploration Hands-On</a>
     </li>
     <li>
-      <a href="../articles/08_Tree_of_life.html">GeneticData</a>
+      <a href="../articles/08_linear_models.html">Introduction to Linear Models: Building and Interpreting Linear Regressions</a>
     </li>
     <li>
       <a href="../articles/09_GBIF_and_Location.html">GBIF And Spatial Data</a>
+    </li>
+    <li>
+      <a href="../articles/FunctionReference.html">FunctionReference.Rmd</a>
+    </li>
+    <li>
+      <a href="../articles/HW5.html">Homework Three</a>
+    </li>
+    <li>
+      <a href="../articles/HomeworkFive.html">Homework Five</a>
+    </li>
+    <li>
+      <a href="../articles/HomeworkFour.html">Homework Three</a>
+    </li>
+    <li>
+      <a href="../articles/HomeworkOne.html">Homework One</a>
+    </li>
+    <li>
+      <a href="../articles/HomeworkThree.html">Homework3</a>
+    </li>
+    <li>
+      <a href="../articles/HomeworkTwo.html">Homework Two</a>
+    </li>
+    <li>
+      <a href="../articles/ProjectOne.html">ProjectOne</a>
+    </li>
+    <li>
+      <a href="../articles/ProjectTwo.html">Project Two</a>
     </li>
   </ul>
 </li>
@@ -115,12 +142,12 @@
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"leaflet"</span>)</pre></body></html></div>
 <p>Later in this lesson, we will also use the <code>rotl</code> package we’ve seen last week.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
-<pre><code>## ── Attaching packages ────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.3     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
@@ -175,10 +202,10 @@
 ##  4 6349179 Hendersonia martialis SPECIES 
 ##  5 8655352 Electrapis martialis  SPECIES 
 ##  6 7395874 Cantharis martialis   SPECIES 
-##  7 5510493 Globulina martialis   SPECIES 
-##  8 5025232 Agathis martialis     SPECIES 
-##  9 8005896 Scopula martialis     SPECIES 
-## 10 5484304 Nectria martialis     SPECIES 
+##  7 5168773 Hahnia martialis      SPECIES 
+##  8 1091951 Onthophagus martialis SPECIES 
+##  9 5977251 Erynnis martialis     SPECIES 
+## 10 4544067 Aculus martialis      SPECIES 
 ## # … with 62 more rows</code></pre>
 <pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
@@ -197,8 +224,8 @@
 ##  6 5035740 Atta silvae    SPECIES
 ##  7 5035749 Atta domicola  SPECIES
 ##  8 8772445 Atta turrifex  SPECIES
-##  9 7965711 Atta hostilis  SPECIES
-## 10 8406115 Atta coronata  SPECIES
+##  9 7359300 Atta didita    SPECIES
+## 10 5035736 Atta columbica SPECIES
 ## # … with 90 more rows</code></pre>
 <pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
@@ -267,15 +294,15 @@
 ##        key canonicalName          rank   
 ##      &lt;int&gt; &lt;chr&gt;                  &lt;chr&gt;  
 ##  1 1317499 Aenictus               GENUS  
-##  2 1317508 Aenictus alticola      SPECIES
-##  3 1317540 Aenictus grandis       SPECIES
-##  4 1317567 Aenictus camposi       SPECIES
-##  5 1317650 Aenictus punctiventris SPECIES
-##  6 1317539 Aenictus laeviceps     SPECIES
-##  7 1317563 Aenictus gleadowii     SPECIES
-##  8 1317577 Aenictus buttgenbachi  SPECIES
-##  9 1317578 Aenictus pharoa        SPECIES
-## 10 1317639 Aenictus foreli        SPECIES
+##  2 1317525 Aenictus binghami      SPECIES
+##  3 1317542 Aenictus eugenii       SPECIES
+##  4 1317621 Aenictus furculatus    SPECIES
+##  5 1317629 Aenictus obscurus      SPECIES
+##  6 1317535 Aenictus porizonoides  SPECIES
+##  7 1317552 Aenictus vagans        SPECIES
+##  8 8602349 Aenictus subterraneus  SPECIES
+##  9 1317599 Aenictus steindachneri SPECIES
+## 10 7485901 Aenictus levior        SPECIES
 ## # … with 90 more rows</code></pre>
 <pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>

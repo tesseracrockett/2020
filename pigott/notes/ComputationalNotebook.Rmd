@@ -1,0 +1,45 @@
+---
+title: "Computational Lab Notebook"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Sep. 23, 2020
+
+*Goal*: 
+
+Plot species by site.
+
+*Worked*: 
+
+Bee_Data_2019_2020 %>% 
+unite("Species", Genus:Specific_epithet) %>% 
+mutate(as.character(Site_number))
+
+*Did Not Work*: 
+
+*geom_bar(), geom_col() does not work with 2 variables 
+
+
+## October 5
+
+Trying revision management for the first time.
+
+[ x ] First push worked
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
