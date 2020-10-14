@@ -119,7 +119,7 @@ population_SVL_vis <- ggplot(population_SVL, mapping = aes(x = population, y = S
 
 population_SVL_vis
 
-##Here I am creating the linear model in order to do an anova. This is also seen in my answer to 3).
+##Here I am creating the linear model here in order to do the anova after. This is also seen in my answer to 3).
 
 model_pop_SVL <- lm(formula = SVL ~ population, data = population_SVL)
 
@@ -154,6 +154,8 @@ The linear model gives standard error, the y-intercept, and the R squared values
 model_pop_SVL_vis <- ggplot(model_pop_SVL, mapping = aes( x = population, y = SVL, color = population)) + geom_jitter(size = 0.5) + geom_smooth(method = "lm", fill = "grey") + annotate("text", x = 2, y = 130, label = "R^2 == 0.1565") + theme_bw()
 
 model_pop_SVL_vis
+
+##I tried this same problem with two predictor variables (population and SVL instead on head length and it resembled more of what we did in class. However, the instructions did not specify the need for more than two predictor variables so I stuck with my initial variables. [SVL ~ population]) The graph for the former model actually produced data with multiple best-fit lines and confidence intervals as compared to my plot of the lm with only the one categorical predictor and numerical response variables.
 ```
 
 ## Part Three
@@ -162,11 +164,7 @@ model_pop_SVL_vis
 1) Add and commit this document (5 pts)
 
 ```
-## in the terminal pane: (I really don't know what is going on here)
-
-rstudio-user@application-2678342-deployment-6956598:/cloud git log$
-
-
+#Commands here
 ```
 
 2) Push your changes to github (10 pts)

@@ -14,6 +14,9 @@ Put your function on this table:
 |---------------|-----------------|---------|----------|
 | sum     | Base R    | Sum a range of numbers | sum(1:6) | 
 | mean    | Base R    | Average a vector of numbers | mean(c(1, 2, 3)) |
+| str     | Base R    | Describe the structure of a data frame    | str(surveys_complete)   |
+| mean    | Base R    | Average a vector of numbers | mean(c(1,2,3)) | 
+| select  | dplyr     | selects variables in a data frame (pulls full columns) | select(sirens, Specific_Epithet)
 | View    | Utils     | View a matrix-like object in spreadsheet-style | View(surveys_complete) |
-|
-|
+| unite | tidyr | unite two or more columns into one | unite(data, col, sep = "_")
+
