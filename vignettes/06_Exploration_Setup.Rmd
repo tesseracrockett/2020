@@ -3,6 +3,7 @@ title: "Exploration"
 author: April Wright
 minutes: 90
 output: html_document
+date: 09/28/2020
 ---
 
 Today, we're going to do something a little different than we have been doing.
@@ -11,7 +12,7 @@ In the first project, we asked about mammal body sizes and climate change. First
 Develop a hypothesis of what you'd expect under Bergman's rule on a warming planet:
 
 ```
-# Hypothesis here
+# I hypothesize that as the Earth's ambient temperature begins to increase, the body size of mammals will decrease and therefore show an inverse relationship.
 ```
 
 To test your hypothesis, are the data that you have sufficient? What other data do you want?
