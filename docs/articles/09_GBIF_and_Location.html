@@ -84,6 +84,9 @@
       <a href="../articles/09_GBIF_and_Location.html">GBIF And Spatial Data</a>
     </li>
     <li>
+      <a href="../articles/09_Tree_of_life.html">GeneticData</a>
+    </li>
+    <li>
       <a href="../articles/FunctionReference.html">FunctionReference.Rmd</a>
     </li>
     <li>
@@ -142,18 +145,19 @@
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"leaflet"</span>)</pre></body></html></div>
 <p>Later in this lesson, we will also use the <code>rotl</code> package we’ve seen last week.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
-<pre><code>## ── Attaching packages ─────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.3     ✓ dplyr   1.0.0
 ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rotl</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rgbif</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">leaflet</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">leaflet</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
 <p>First, we’re going to try an example for one ant. We will query locality data and map it in a few ways. Then, you will figure out how to make the process of mapping data iterable over a set of taxa.</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/name_suggest.html">name_suggest</a></span>(<span class="st">"Atta mexicana"</span>)</pre></body></html></div>
 <pre><code>## Records returned [1] 
@@ -167,14 +171,13 @@
 <p>Next, we’re going to use <code>occ_search</code> to search the GBIF database for where these things are occurring.</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r"> <span class="no">occurences</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/rgbif/reference/occ_search.html">occ_search</a></span>(<span class="kw">taxonKey</span> <span class="kw">=</span> <span class="fl">5035745</span>, <span class="kw">limit</span> <span class="kw">=</span> <span class="fl">20</span>)</pre></body></html></div>
 <p>Next, we will filter the resultant dataset to name and lat and longitude data.</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
-<span class="no">no_na</span> <span class="kw">&lt;-</span> <span class="no">occurences</span>$<span class="no">data</span> <span class="kw">%&gt;%</span>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">no_na</span> <span class="kw">&lt;-</span> <span class="no">occurences</span>$<span class="no">data</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="no">scientificName</span>, <span class="no">decimalLatitude</span>, <span class="no">decimalLongitude</span>) <span class="kw">%&gt;%</span>
   <span class="fu">drop_na</span>()</pre></body></html></div>
 <p>And finally, we will plot the data using <code>leaflet</code></p>
 <div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">k</span> <span class="kw">&lt;-</span> <span class="kw pkg">leaflet</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/leaflet.html">leaflet</a></span>(<span class="no">no_na</span>) <span class="kw">%&gt;%</span>
-<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
-<span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">popup</span> <span class="kw">=</span> <span class="no">no_na</span>$<span class="no">scientificName</span>)</pre></body></html></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addTiles</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addMarkers</a></span>(~<span class="no">decimalLongitude</span>, ~<span class="no">decimalLatitude</span>, <span class="kw">popup</span> <span class="kw">=</span> <span class="no">no_na</span>$<span class="no">scientificName</span>)</pre></body></html></div>
 <p>This looks much like plotting with <code>ggplot</code> and tidyverse. That’s because leaflet is based on the same principles. We establish a canvas and the data in the first line, then we add tiles (the actual map we will use), and then we add our points. When we think about it, this is quite similar to establishing a ggplot canvas, the axes, and the points to plot.</p>
 <p>One point is easy. How often do we only want one point, though? Probably, we will want to plot several species. First, with a partner, work out how to get GBIF ids for a set of taxa.</p>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">ants</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Martialis"</span>, <span class="st">"Atta"</span>, <span class="st">"Ectatomma"</span>, <span class="st">"Tatuidris"</span>, <span class="st">"Aneuretus"</span>, <span class="st">"Xymmer"</span>, <span class="st">"Aenictus"</span>)
@@ -214,18 +217,18 @@
 ## No. unique hierarchies [0] 
 ## Args [q=Atta, limit=100, fields1=key, fields2=canonicalName, fields3=rank] 
 ## # A tibble: 100 x 3
-##        key canonicalName  rank   
-##      &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;  
-##  1 1323108 Atta           GENUS  
-##  2 6006602 Atta           GENUS  
-##  3 5035739 Atta robusta   SPECIES
-##  4 5035737 Atta goiana    SPECIES
-##  5 8368352 Atta penetrans SPECIES
-##  6 5035740 Atta silvae    SPECIES
-##  7 5035749 Atta domicola  SPECIES
-##  8 8772445 Atta turrifex  SPECIES
-##  9 7359300 Atta didita    SPECIES
-## 10 5035736 Atta columbica SPECIES
+##         key canonicalName  rank   
+##       &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;  
+##  1  1323108 Atta           GENUS  
+##  2  6006602 Atta           GENUS  
+##  3  5035739 Atta robusta   SPECIES
+##  4  5035737 Atta goiana    SPECIES
+##  5  8368352 Atta penetrans SPECIES
+##  6  5035740 Atta silvae    SPECIES
+##  7  5035749 Atta domicola  SPECIES
+##  8  8772445 Atta turrifex  SPECIES
+##  9 10197841 Atta colombica SPECIES
+## 10  7843775 Atta balzani   SPECIES
 ## # … with 90 more rows</code></pre>
 <pre><code>## Warning in ids[ant] &lt;- c(raw$data$key): number of items to replace is not a
 ## multiple of replacement length</code></pre>
