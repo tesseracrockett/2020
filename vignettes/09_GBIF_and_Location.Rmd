@@ -15,6 +15,8 @@ install.packages("leaflet")
 Later in this lesson, we will also use the `rotl` package we've seen last week.
 
 ```{r}
+library(tidyverse)
+library(dplyr)
 library(rotl)
 library(rgbif)
 library(leaflet)
@@ -73,29 +75,34 @@ ids <-c()
    print(ant)
    raw <- name_suggest(ant)
    print(raw)
-   ids[ant] <- c(raw$data)
-   return(ids)
+   ids[ant] <- c(raw$data$key)
 }
 
 ```
 
 Now, we will get the actual specimen occurrences for these ants. Practice using an apply function to do this. Inspect the object you've queried when you've completed your loop. Have we dealt with an object like this before?
 
-```{r}
-#Search GBIF for the vector of IDs.
-df <- lapply(ids, occ_search, return="data")
+```{r, eval=FALSE}
+ids <-c()
+  for (ant in ants){
+   raw <- name_suggest(ant)
+   occ_search(taxonKey = raw$data$key, limit = 10)
+}
 ```
 
 This is a vector or dataframes. Each individual query made it's own dataframe. For simplicity, lets combine them into one dataframe object.
 
-```{r}
+```{r, eval=FALSE}
 #Combine the resultant dataframes into one large dataframe
-mega_df <- bind_rows(df, .id = "column_label")
+mega_df <- bind_rows(.id = "column_label")
+  for (ant in ants){
+   print(df$ant$data)
+}
 ```
 
 Since we will be plotting these with a map, we need complete data in both columns - lat and long. Let's drop any columns without data in both.
 
-```{r}
+```{r, eval=FALSE}
 #Drop rows with NA values in the lat and long
 no_na <- mega_df %>%
 select(scientificName, decimalLatitude, decimalLongitude) %>%
@@ -105,7 +112,7 @@ drop_na()
 
 Now let's take a peek at our results!
 
-```{r}
+```{r, eval=FALSE}
 # Plot the dataframe of observations
 k <- leaflet::leaflet(no_na) %>%
 addTiles() %>%
@@ -255,14 +262,14 @@ split_up
 ```
 Try indexing this object. What do you need to do to access data? Now, with a partner, make this iterable across every row in the `scientificName` column. Then, unite the split objects into one new column called `genusSpecies`.
 
-```{r}
+```{r, eval=FALSE}
 split_names <- no_na %>% 
 mutate(genus = map_chr(scientificName, function(s) strsplit(s, " ")[[1]][1]))%>% mutate(species = map_chr(scientificName, function(s) strsplit(s, " ")[[1]][2])) %>% 
 unite(col = genusSpecies, genus, species)
 ```
 
 If you look at the data, there are some obviously mistaken values in there. For example, BOLD is not an ant species. Let's drop that. 
-```{r}
+```{r, eval=FALSE}
 
 # Use ROTL to resolve names
 
@@ -272,7 +279,7 @@ no_bold <- split_names[ grep("BOLD", split_names$genusSpecies, invert = TRUE) , 
 
 We also ended up with far more ant taxa than I thought. What a nice problem to have! But let's filter down to, say, five of them:
 
-```{r}
+```{r, eval=FALSE}
 a_couple_ants <- c("Martialis_heureka", "Atta_mexicana", "Atta_cephalotes", "Atta_sexdens", "Atta_Fabricius")
 subset_data <- no_bold %>% 
     filter(genusSpecies %in% a_couple_ants)
@@ -280,7 +287,7 @@ subset_data <- no_bold %>%
 ```
 
 Now, let's use ROTL to make sure we don't have spelling errors.
-```{r}
+```{r, eval=FALSE}
 reconciled_names <- rotl::tnrs_match_names(unique(subset_data$genusSpecies))
 good_names <-  reconciled_names %>%
   drop_na()
@@ -290,7 +297,7 @@ good_names <-  reconciled_names %>%
 
 Now, we will query our tree from OpenTree.
 
-```{r}
+```{r, eval=FALSE}
 
 tree <- rotl::tol_induced_subtree(good_names$ott_id, label="name")
 ```
@@ -298,7 +305,7 @@ tree <- rotl::tol_induced_subtree(good_names$ott_id, label="name")
 
 Now, we must combine our GBIF data and our taxon names into a matrix, a two-dimensional data structure with fewer neat data parsing features than a dataframe or tibble. These structures are often preferred when speed is an issue. Matrices can only be one type, which means we must add the row names after generating the object.
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 
 only_lat_long <- subset_data %>% 
   select(decimalLatitude, decimalLongitude) %>% 
@@ -310,7 +317,7 @@ rownames(only_lat_long) <- subset_data$genusSpecies
 
 And the big reveal! Let's overlay our OpenTree with our map:
 
-```{r}
+```{r, eval=FALSE}
 
 library(viridis)
 cols<-setNames(sample(viridis(n=Ntip(tree))),
@@ -335,7 +342,7 @@ This tree has several quirks. Have a look at the object and see if you can spot 
 
 First, let's resolve the polytomy issue. We will do this using Ape's `multi2di` function, which arbitrarily resolves polytomies. In real life, you would probably want to think about this a little more.:
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 
 library(ape)
 tree <- multi2di(tree)
@@ -345,7 +352,7 @@ We'll also need to add some branch lengths. In our case, we will draw them from 
 
 In our case, we will use `rexp` to make the draws, and we will map them to a new attribute `edge.length` that is a standard attribute of the tree object. In reality, you would likely not want to do this for a publication quality analysis, and would want to estimate branch lengths from data. But being able to rescale branch lengths is a good skill for sensitivity and other similar analyses.
 
-```{r}
+```{r, eval=FALSE}
 tree$edge.length <- rexp(tree$Nnode*2)
 tree$edge.length
 
@@ -354,7 +361,7 @@ tree$edge.length
 
 Now let's try that map again. 
 
-```{r}
+```{r, eval=FALSE}
 plot_object<-phylo.to.map(tree,only_lat_long, plot=FALSE, direction="rightwards")
 
 ```
@@ -362,7 +369,7 @@ plot_object<-phylo.to.map(tree,only_lat_long, plot=FALSE, direction="rightwards"
 
 Finally, we will actually plot to space.
 
-```{r}
+```{r, eval=FALSE}
 
 plot(plot_object,direction="rightwards",colors=cols,cex.points=c(0,1),
     lwd=c(3,1),ftype="i")

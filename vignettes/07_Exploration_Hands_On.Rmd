@@ -12,6 +12,7 @@ In order to test our hypothesis, we are going to get some climate data from NOAA
 ```{r}
 
 install.packages("rnoaa")
+library(tidyverse)
 
 ```
 
@@ -22,7 +23,7 @@ Once this is complete, we can use the package. Here is the first command you wil
 
 ```{r, eval = FALSE}
 library(rnoaa)
-ncdc_locs(locationcategoryid='CITY', sortfield='name', sortorder='desc')
+ncdc_locs(locationcategoryid='CITY', sortfield='name', sortorder='desc', token = "FWsjDoEyQILqGajMQXdKhGusHDNZSpfR")
 ```
 
 

@@ -4,7 +4,6 @@ author: "Data Carpentry contributors"
 minutes: 20
 ---
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
-source("../setup.R")
 ```
 
 ------------
@@ -404,7 +403,7 @@ the experiment:
 
 ```{r, purl=TRUE}
 ## bar plot of the number of females and males captured during the experiment:
-plot(surveys$sex)
+plot(as.factor(surveys$sex))
 ```
 
 In addition to males and females, there are about 1700 individuals for which the
