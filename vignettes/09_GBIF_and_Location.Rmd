@@ -7,7 +7,7 @@ This week, we will be starting with geospatial data and mapping. Today, we will 
 
 We will work with two packages today. One is [RGBIF](https://www.gbif.org/tool/81747/rgbif), an interface to [GBIF](https://www.gbif.org/) data maintained by the [ROpenSci](https://ropensci.org/) group.
 
-```{r}
+```{r, eval=FALSE}
 install.packages("rgbif")
 install.packages("leaflet")
 ```
@@ -18,6 +18,7 @@ Later in this lesson, we will also use the `rotl` package we've seen last week.
 library(rotl)
 library(rgbif)
 library(leaflet)
+library(tidyverse)
 ```
 
 
@@ -41,7 +42,6 @@ Next, we're going to use `occ_search` to search the GBIF database for where thes
 Next, we will filter the resultant dataset to name and lat and longitude data.
 
 ```{r}
-library(tidyverse)
 no_na <- occurences$data %>%
   select(scientificName, decimalLatitude, decimalLongitude) %>% 
   drop_na()
@@ -53,8 +53,8 @@ And finally, we will plot the data using `leaflet`
 
 ```{r}
 k <- leaflet::leaflet(no_na) %>% 
-addTiles() %>% 
-addMarkers(~decimalLongitude, ~decimalLatitude, popup = no_na$scientificName)
+  addTiles() %>% 
+  addMarkers(~decimalLongitude, ~decimalLatitude, popup = no_na$scientificName)
 
 ```
 
@@ -73,7 +73,8 @@ ids <-c()
    print(ant)
    raw <- name_suggest(ant)
    print(raw)
-   ids[ant] <- c(raw$key)
+   ids[ant] <- c(raw$data)
+   return(ids)
 }
 
 ```
