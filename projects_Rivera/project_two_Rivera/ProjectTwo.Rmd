@@ -125,7 +125,7 @@ git commit projects_Rivera/project_two_Rivera/ProjectTwo.Rmd
 2) Push your changes to github (10 pts)
 
 ```
-#Commands here
+
 ```
 
 3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
