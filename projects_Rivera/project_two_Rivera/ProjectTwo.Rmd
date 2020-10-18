@@ -125,7 +125,9 @@ git commit projects_Rivera/project_two_Rivera/ProjectTwo.Rmd
 2) Push your changes to github (10 pts)
 
 ```
-j
+git push origin Class
+
+I struggled a lot with this process. When I initially comitted I wasn't able to push. After attempting to commit several times, I ended up having to pull, merge, and push the content again. I was finally able to push to github with this code.
 ```
 
 3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
