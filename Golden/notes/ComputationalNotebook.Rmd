@@ -32,7 +32,7 @@ ggplot(sepped) + geom_bar(aes(y = min_age))
 
 Trying revision management for the first time. 
 
--[x] First push worked
+-[ x ] First push worked
 
 
 ```{r cars}
