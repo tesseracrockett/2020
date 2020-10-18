@@ -101,15 +101,14 @@ Plot the lm with the data, with points colored by sex or your relevant variable.
 Part Three
 Add and commit this document (5 pts)
 #Commands here (From the Terminal)
-git add /cloud/projects/projects_Golden/project_two_Golden/Project_two.Rmd
-git commit /cloud/projects/projects_Golden/project_two_Golden/Project_two.Rmd
+
+- git add /cloud/projects/projects_Golden/project_two_Golden/Project_two.Rmd
+- git commit /cloud/projects/projects_Golden/project_two_Golden/Project_two.Rmd
 
 Push your changes to github (10 pts)
 #Commands here
+
+- git push 
+
 Make a pull request on my repo so I’m notified. Do this last, when you are done and ready for me to see it (10pts)
 
-
-MS students
-My expectation is that you’ll do this with your own data. If any part of this doesn’t make sense with your data, please get in touch ASAP so we can work it out.
-
-In addition, please take one of the statistical tests we tried, and write it as a function in the R/ folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I’ll view it there.
