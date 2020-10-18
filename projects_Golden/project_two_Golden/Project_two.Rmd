@@ -1,0 +1,115 @@
+---
+title: "Project 2"
+output: html_document
+---
+
+# Due Oct. 18 at Midnight.
+
+First, obtain a copy of the RMarkdown for this exam
+
+For this first part of the exam, you can either use surveys_complete.csv or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using surveys_complete, you can use weight and hindfoot_length for this.
+
+Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+# read in data here
+> surveys_complete <- read_csv("data_output/surveys_complete.csv")
+
+# Answer which column is predictor and which is response
+predictor = weight (column 9)
+response = hindfoot_length (column 8)
+
+Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+# Plot here
+> import(ggplot2)
+> ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
+    geom_point()
+
+#Answer here
+
+- The graph shows that the data does not appear to be related linearly. 
+
+Fit the linear model. View the summary. (5 pts)
+# Code here
+ > model_fit <- lm(hindfoot_length ~ weight, data = surveys_complete)
+ > summary(model_fit)
+
+Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular. (10 pts)
+# Answer here
+- Yes. The summary somewhat makes sense but the model would not have a good predictive power due to wide variation in the data. 
+- The standard error is low which indicates most of the population is close to the mean of the population. 
+- The intercept is a little high as weight 0 might not refer to hindfoot length of 21.62.
+- The R-squared value indicates how close our linear model is fitted. Closer the value to 1 better fit the model. But in our case the value is 0.46. So, it means 46.76% of the variation in hindfoot length could be explained by this model but remaining 53.24% would not be explained. 
+- The equation for our model would be y = 0.182x + 21.62. 
+
+Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+# Code here
+> ggplot(surveys_complete, aes(x=weight, y=hindfoot_length)) +
++ geom_point(size = 0.5) +
++ geom_smooth(method = "lm", color = "navy", size = 0.5, fill = "deeppink4")+
++ labs(x = "Weight", y = "Hindfoot Length", title = "Linear Regression to predict Hindfoot Length from Weight")+
++ annotate("text", x= 200, y = 70, label = "R^2 == 0.4676", parse=T, color = "firebrick", size = 5)+
++ theme_bw()
+
+Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+#Code here
+>library(broom)
+broom::augment(model_fit) -> augmented_fit 
+qqline(augmented_fit$.resid, col = "red")
+
+#Answer here
+- The residuals do seem a little off towards the end of the plot. We would be violating assumptions as the residuals are not correlated at all. 
+
+If you are using surveys_complete: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts)
+#code here
+> ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length, color = sex)) +
+     geom_line() +
+     facet_wrap(facets =  vars(species))
+
+- Yes. When plotting the weight vs. hindfoot length in the facet plot for different species, one can see the different locations of lines in the graph thus indicating the presence of interspecific variance in the model. 
+
+Part Two
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in surveys_complete
+
+First, plot the data grouped by sex, or a relevant variable in your data (5 pts)
+# plot code here
+> ggplot(surveys_complete, aes(x= sex, y= hindfoot_length, color = sex)) + geom_jitter()
+
+Try an ANOVA of this data (5 pt)
+# ANOVA code here
+> mdoel_fit <- lm(hindfoot_length ~ sex, data = surveys_complete)
+> anova_model_fit <- aov(model_fit)
+> summary(anova_model_fit)
+
+How about a linear model? What information does this give you that an ANOVA can’t? (5 pts)
+#Code here
+>mdoel_fit <- lm(hindfoot_length ~ sex, data = surveys_complete)
+summary(mdoel_fit)
+
+#Answer here
+- The linear model gives the idea about how well the model is fit but ANOVA doesn't. Also, Linear model gives the error in the residual values whereas ANOVA doesn't. 
+
+Plot the lm with the data, with points colored by sex or your relevant variable. (10 pts)
+#Plot code here
+> ggplot(surveys_complete, aes(x = weight, y = hindfoot_length, color = sex)) +
+    geom_point() +
+    labs(x = "weight",
+         y = "hindfoot length",
+         color = "Crab color") +
+    scale_color_manual(values = c("red", "blue")) +
+    geom_smooth(method = "lm") +
+    annotate("text", x = 200, y = 70, label = "R^2 == 0.002212", parse=T, size=5)
+    
+Part Three
+Add and commit this document (5 pts)
+#Commands here (From the Terminal)
+git add /cloud/projects/projects_Golden/project_two_Golden/Project_two.Rmd
+git commit /cloud/projects/projects_Golden/project_two_Golden/Project_two.Rmd
+
+Push your changes to github (10 pts)
+#Commands here
+Make a pull request on my repo so I’m notified. Do this last, when you are done and ready for me to see it (10pts)
+
+
+MS students
+My expectation is that you’ll do this with your own data. If any part of this doesn’t make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the R/ folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I’ll view it there.
