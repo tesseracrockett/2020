@@ -25,6 +25,9 @@ also
 
 ggplot(data = diameters_clean, mapping = aes(x = site, y = year_2016, group = spp)) + geom_bar() + labs(title = "2016 Diameters by Site", x = "Site" , y = "2016 Diameter (DBH)") + theme_bw() +theme(text = element_text(size = 20))
 Error: stat_count() can only have an x or y aesthetic.
+```{r}
+ggplot(data = diameters_clean, mapping = aes(x = spp, y = year_2016)) + geom_boxplot() + labs(title = "2016 Diameters by Species", x = "Species" , y = "2016 Diameter (DBH)") + theme_bw() +theme(text = element_text(size = 20)) + theme(axis.text.x = element_text(angle = 90, size= 16))
+```
 
 ## Sept. 28, 2020
 Bergman's rule relates to mammal body sizes and temps - develop a hypothesis about what we would expect to happen to mammalian body sizes if Bergmans rule is true? are there enough data to test this hypothesis in the surveys_complete? what additional data would we like/need?
@@ -69,6 +72,41 @@ rstudio-user@application-2678354-deployment-6956621-jhbrx:/cloud/project$ git co
     push = put the code in the online repository
 -each commit has it's own unique code - on git, anything with green background is new code that has been added, red means it's been deleted
 - we have some initial code, we mess with it, then we have code version two, mess with it, code version 3 - this is a bad habit which is dangerous workflow - in git you have a managed workflow, your file name is overwritten and does not change, but you have your initial commit with it's own unique id, and each subsequent commit has it's own as well - you have one file in R, but all previous loads in git 
+
+##projecttwonotes
+this works, but dates not in order
+```{r}
+
+ggplot(diameters_project_two, mapping = aes(x = date, y= diameter_by_year, group = spp)) +geom_point(size= .2 ) +geom_smooth(method = "lm") + theme_bw() +theme(axis.text.x = element_text(angle = 90, size = 14))
+```
+
+this also works
+```{r}
+ggplot(diameters_project_two, mapping = aes(x = spp, y= diameter_by_year, group = date)) +geom_point(size= .2 ) +geom_smooth(method = "lm", color ="navy", fill = "white") + theme_bw() +theme(axis.text.x = element_text(angle = 90, size = 14))
+```
+
+this works best so far
+```{r}
+ggplot(diameters_project_two, mapping = aes (x=spp, y=diameter_by_year, group = year)) +geom_line() + geom_smooth() + theme_bw() 
+```
+
+
+
+
+
+##October 14, 2020
+```{r}
+model_fit <-lm(body_depth~color + carapace_length, data = crabs)
+summary(model_fit)
+
+```
+
+
+```{r}
+ggplot(crabs, aes(x= carapace_length, y = body_depth, color=color)) + geom_point() + labs(x = "Carapace length (mm)", y= "Body depth (mm)", color = "Crab color") + scale_color_manual(values = c ("blue", "orange")) + geom_smooth(method = "lm") + annotate("text", x = 20, y = 30, label = "R^2 == 0.988", size = 5)
+```
+check relationship of body depth and carapace length, check with carapace width
+
 
 ```{r cars}
 summary(cars)
