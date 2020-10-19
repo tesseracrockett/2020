@@ -1,0 +1,183 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+ecotox_data <- read_csv("/cloud/project/projects/projects_crockett/project_two_crockett/ecotox_data.csv")
+```
+Note: this is data from an ecotoxicology experiment - trying to build a dose response curve for ammonia (mimicking secondarily treated effluent) in a wetland plant (Juncus effusus).
+
+```
+# Answer which column is predictor and which is response
+``` predictor is dose, response is root to shoot ratio
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+ggplot(ecotox_data_new, mapping = aes (x=Dose, y=Aboveground)) +geom_line() + geom_smooth() + theme_bw() 
+```
+
+```
+mostly
+```
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+model_fit_ecotox <- lm(Aboveground~Dose, ecotox_data_new)
+summary(ecotox_data_new)
+```
+Call:
+lm(formula = Aboveground ~ Dose, data = ecotox_data_new)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.9765 -1.1078 -0.3741  0.8584  3.0035 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 4.297747   0.488969   8.789  4.5e-07 ***
+Dose        0.018194   0.004865   3.740   0.0022 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.631 on 14 degrees of freedom
+Multiple R-squared:  0.4997,	Adjusted R-squared:  0.464 
+F-statistic: 13.98 on 1 and 14 DF,  p-value: 0.002198
+
+
+
+
+4) Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+The residual standard error is 1.631, this is not as close to zero as we would probably lik. The intercept does make sense, even with no fertalizer, a hearty wetland plant such as soft rush (which it is a very hearty plant, what stabbed me in the eye actually) would be expected to experience some growth (4.298) with only water and sunlight, and zero ammonium dose. R squared is not so great at .464, meaning only 46.40% of plant height increase can be explained by the dose of ammonium received, although p value is good at .0022. Considering the experiment, the summary make sense. Plants will grow with only water and sunlight, so it can be assumed that aboveground biomass will only partially be explained by the dose of fertalizer received. 
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```
+ggplot(ecotox_data_new, mapping = aes (x=Dose, y=Aboveground)) +geom_point(size = .5) + geom_smooth(method = "lm", color = "navy", size = .5, fill = "deeppink4") +labs(x = "Ammonium Dose (ppm)", y = "Aboveground biomass (g/m^2)", title = "Linear Regression to Predict Plant Aboveground Biomass Increase") + annotate("text", x=20, y=30, label = "R^2 ==0.464", parse=T, color ="firebrick", size = 5) + theme_bw() 
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+
+broom::augment(model_fit_ecotox) -> augmented_fit
+qqnorm(augmented_fit$.resid)
+qqline(augmented_fit$.resid, col = "red")
+
+```
+
+
+```{r}
+Residuals appear roughly normal. There are two points that deviate from line a fair bit, and I believe these were on the verge of outliers when I ran these using systat. 
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+ggplot(ecotox_data_new, mapping = aes (x=Dose, y=Aboveground)) +geom_point(size = .5) + geom_smooth(method = "lm", color = "navy", size = .5, fill = "deeppink4") +facet_wrap(facet = vars(Replicate)) +labs(x = "Ammonium Dose (ppm)", y = "Aboveground biomass (g/m^2)", title = "Linear Regression to Predict Plant Aboveground Biomass Increase") + annotate("text", x=20, y=30, label = "R^2 ==0.464", parse=T, color ="firebrick", size = 5) + theme_bw()
+```
+No, there are no groupings with their own linear model. 
+
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+
+ggplot(surveys_complete, mapping = aes(x = sex, y = weight, color = sex)) + geom_jitter() + geom_smooth() + theme_bw()
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+ggplot(surveys_complete, mapping = aes(x=sex, y=weight, color = sex)) + geom_jitter() +labs(x = "Sex", y = "Weight (kg)") +theme(legend.position = "none") + stat_summary(fun.data = "mean_se", color = "black")
+
+aov(model_fit_surveys) -> anova_model_fit
+summary(anova_model_fit)
+```
+    Df   Sum Sq Mean Sq F value Pr(>F)
+sex             1     2869    2869   2.255  0.133
+Residuals   30674 39033425    1272    
+
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+model_fit_surveys <- lm(weight~sex, data= surveys_complete)
+model_fit_surveys
+```
+
+```
+provides a variety of data such as intercept, residuals, R^2, p value for R^2, etc...
+Call:
+lm(formula = weight ~ sex, data = surveys_complete)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-38.08 -22.08  -5.47   5.53 237.92 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  41.4701     0.2954 140.391   <2e-16 ***
+sexM          0.6124     0.4078   1.502    0.133    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 35.67 on 30674 degrees of freedom
+Multiple R-squared:  7.351e-05,	Adjusted R-squared:  4.091e-05 
+F-statistic: 2.255 on 1 and 30674 DF,  p-value: 0.1332```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+
+ggplot(surveys_complete, mapping = aes(x= sex, y = weight, color = sex)) + geom_point() +geom_smooth(method = "lm", color = "navy", size = .5, fill = "deeppink4") +labs(x = "Sex", y = "Weight (kg)", title = "Linear Regression to Predict Weight by Sex") 
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+#Commands here
+```
+
+2) Push your changes to github (10 pts)
+
+```
+#Commands here
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.
