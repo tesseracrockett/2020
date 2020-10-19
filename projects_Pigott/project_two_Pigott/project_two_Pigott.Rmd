@@ -1,0 +1,172 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+beedataproj2 <- read.csv("/cloud/project/data/Bee_Data_R.csv")
+```
+
+```
+The predictor is time since burn and the response is Family.
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+```{r}
+beedataproj2
+```
+
+```{r}
+beedataproj2 %>% 
+ group_by(Species, Time_since_burn_mo) %>%
+ count(count = n()) %>% 
+ ggplot(beedataproj2, mapping = aes(x = Time_since_burn_mo, y = count)) + geom_point() + geom_smooth(method = "lm")
+
+```
+
+Also tried this code: 
+```{r}  
+beedataproj2 %>% 
+separate(Species, into = c("Genus", "Species"), sep = "_") %>% 
+group_by(Genus, Time_since_burn_mo) %>%
+count(count = n()) %>% 
+ggplot(beedataproj2, mapping = aes(x = Time_since_burn_mo, y = count, color = Genus)) + geom_point() + geom_smooth(method = "lm")
+```
+
+```{r}  
+beedataproj2 %>% 
+ group_by(Family, Time_since_burn_mo) %>%
+ count(count = n()) %>% 
+ ggplot(beedataproj2, mapping = aes(x = Time_since_burn_mo, y = count, color = Family)) + geom_point() + geom_smooth(method = "lm")
+```
+
+```
+The data appear to have a very slight linear trend. When I look at Family counts, Apidae actually shows a slight negative linear trend.
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+lm(Family ~ Time_since_burn_mo, data=beedataproj2)
+```
+The code for my bee data gave me error messages that I couldn't interpret, so I am going to use surveys_complete for the rest of the exam.
+
+```{r}
+lm_surveys_output <- lm(weight ~ hindfoot_length, data = surveys_complete)
+summary(lm_surveys_output)
+```
+
+4) Does the summary make sense? Does our model have good predicitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+The summary does make sense, but it has little predictive power with all of the information it presents in this case. The residual standard error is 26.07, which is large, so there is a good bit of error/variation in the data. The intercept states that at a hindfoot length of 0 mm, we will have an average weight of -33.086 mg. The intercept is highly significant and differs from zero. The R-Squared is low at 0.4676. Ultimately, this data doesn't correlate very well and I wouldn't consider it linear.
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = hindfoot_length, y = weight)) + geom_point() + geom_smooth(method = "lm") + geom_jitter() + labs(x = "Hindfoot length", y = "Weight") + theme(text=element_text(size = 36))
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+augmentedsurveys <- broom::augment(model_fit_surveys)
+qqnorm(augmentedsurveys$.resid)
+qqline(augmentedsurveys$.resid, col = "red")
+```
+
+
+```
+The residuals do not look okay. They deviate a lot when the theoretical quantiles reaches positive digits greater than 2. They also do not fit on the line from -4 to -2. We are violating assumptions with these residuals.
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+BEE DATA: I grouped by genus above instead of family. The linear trend was not as obvious.
+
+```{r}
+beedataproj2 %>% 
+separate(Species, into = c("Genus", "Species"), sep = "_") %>% 
+group_by(Genus, Time_since_burn_mo) %>%
+count(count = n()) %>% 
+ggplot(beedataproj2, mapping = aes(x = Time_since_burn_mo, y = count, color = Genus)) + geom_point() + geom_smooth(method = "lm")
+```
+SURVEYS DATA: There is interspecific variation within the linear model. Different species vary greatly.
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = hindfoot_length, y = weight)) + geom_point() + geom_smooth(method = "lm") + geom_jitter() + labs(x = "Hindfoot length", y = "Weight") + theme(text=element_text(size = 36)) + facet_wrap(vars(genus))
+```
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = sex, y = weight)) + geom_point() + geom_smooth(method = "lm")
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+model_fit_surveys <- lm(weight ~ sex, data = surveys_complete)
+ aov(model_fit_surveys)
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+summary(model_fit_surveys)
+```
+
+```
+This information gives me residuals that are broken down into quantiles, coefficients with the intercept, multiple and adjusted R squared, the F-statistic, and the p-value. Just the R squared and p-value alone provides a wealth of info that the ANOVA function doesn't.
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = sex, y = weight, color = sex)) + geom_point() + geom_smooth(method = "lm") + geom_jitter()
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+#Commands here
+```
+
+2) Push your changes to github (10 pts)
+
+```
+#Commands here
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.
