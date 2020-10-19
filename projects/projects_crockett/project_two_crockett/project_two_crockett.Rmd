@@ -163,21 +163,32 @@ ggplot(surveys_complete, mapping = aes(x= sex, y = weight, color = sex)) + geom_
 1) Add and commit this document (5 pts)
 
 ```
-#Commands here
+select Git in upper right of R
+locate and check off projecttwo and data
+select commit
+add commit note
+select commit
 ```
 
 2) Push your changes to github (10 pts)
 
 ```
-#Commands here
+close git commit confirmation window
+select push in upper right of commit window
+enter username and password
+confirmation window opens
+verified in Git that project and data were pushed
+
 ```
 
 3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
 
-
+#TBC completed
 
 # MS students
 
 My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
 
 In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.
+
+#TBC completed (add, commit and pushed)
