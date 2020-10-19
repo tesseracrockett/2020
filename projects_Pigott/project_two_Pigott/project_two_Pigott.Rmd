@@ -152,7 +152,7 @@ ggplot(data = surveys_complete, mapping = aes(x = sex, y = weight, color = sex))
 1) Add and commit this document (5 pts)
 
 ```
-#Commands here
+Git -> checked box beside projects_Pigott/project_two_Pigott -> Commit
 ```
 
 2) Push your changes to github (10 pts)
