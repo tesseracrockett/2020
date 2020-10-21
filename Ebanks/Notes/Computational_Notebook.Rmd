@@ -44,6 +44,21 @@ Adding code to a repository
   
 
 
+## October 14, 2020
+
+Linear model intro
+
+```{r}
+
+ggplot(crabs, aes(x = carapace_length, y = body_depth, color = carapace_width)) + geom_point(size = 2) + labs(x = "Carapace length (mm)", y = "Body depth (mm)", color = "Carapace width (mm)") + scale_color_distiller(palette = "Reds") + annotate("text", x = 25, y = 30, label = "R^2 = 0.977", size = 5) + theme(legend.position = "bottom") + theme_bw()
+
+## This is nice for the distiller function
+
+```
+
+
+
+
 
 ```{r cars}
 summary(cars)
