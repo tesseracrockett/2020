@@ -11,8 +11,8 @@ articles:
   06_Exploration_Setup: 06_Exploration_Setup.html
   07_Exploration_Hands_On: 07_Exploration_Hands_On.html
   08_linear_models: 08_linear_models.html
-  09_GBIF_and_Location: 09_GBIF_and_Location.html
   09_Tree_of_life: 09_Tree_of_life.html
+  10_GBIF_and_Location: 10_GBIF_and_Location.html
   FunctionReference: FunctionReference.html
   HW5: HW5.html
   HomeworkFive: HomeworkFive.html
@@ -22,5 +22,5 @@ articles:
   HomeworkTwo: HomeworkTwo.html
   ProjectOne: ProjectOne.html
   ProjectTwo: ProjectTwo.html
-last_built: 2020-10-15T17:59Z
+last_built: 2020-10-23T20:03Z
 
