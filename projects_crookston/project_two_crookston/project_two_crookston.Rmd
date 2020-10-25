@@ -1,0 +1,184 @@
+---
+title: "Project Two"
+output: html_document
+author: Claire Crookston
+date: 10/12/2020
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+```
+##Code to download ProjectTwo.Rmd file:
+
+download.file("https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/vignettes/ProjectTwo.Rmd", destfile = "/cloud/project/projects_crookston/project_two_crookston.Rmd")
+```
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+measurements_data <- read_csv("/cloud/project/crookston/data/measurements.csv")
+```
+
+```
+## I will be using the column "SVL" as my predictor variable and "HdLngth" as the response variable. I hypothesize that greater SVL will accompany a greater "HdLength" (head length).
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+only_SVL_HdLngth <- measurements_data %>% 
+  select("SVL", "HdLngth")
+
+SVL_HdLngth_vis <- ggplot(only_SVL_HdLngth, mapping = aes(x = SVL, y = HdLngth)) + geom_point()
+```
+
+```
+## The resulting graph is mostly linear with a few outliers.
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+model_SVL_HdLngth1 <- lm(HdLngth ~ SVL, data = only_SVL_HdLngth)
+
+summary(model_SVL_HdLngth1)
+```
+
+4) Does the summary make sense? Does our model have good predictive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+## The summary does appear to make sense because the y-intercept is greater than 0 (Head length cannot be negative) and the slope is a postive value (the line shows a direct relationship). This model has good predictive power because the standard error is low (<1.00) and the R squared value is  very close to 1.00 (0.8424). The last two measures are not outstanding because there are outliers affecting the data (impact regression).
+```
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```{r}
+model_SVL_HdLngth_vis <- ggplot(only_SVL_HdLngth, mapping = aes(x = SVL, y = HdLngth)) + geom_point(size = 0.5) + geom_smooth(method = "lm", color = "green", fill = "orange") + annotate("text", size = 10, x = 80, y = 25, label = "R^2 == 0.8424") + theme_bw(base_size = 20)
+
+##Need to do this step to see the plot (first block of code won't show it)
+model_SVL_HdLngth_vis
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+aug_model <- broom::augment(model_SVL_HdLngth1)
+
+qqnorm(aug_model$.resid)
+
+qq_aug_SVL_Hdlength <- qqline(aug_model$.resid)
+```
+
+
+```
+The residuals do look pretty normal with the exception of a few points straying from the line towards the intersection of the axes at 0. I don't think the residuals [significantly] violate any assumptions of a normal distribution of residuals. 
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+HdDpth_Gape <- measurements_data %>% 
+  select(HdDpth, Gape)
+
+model_HdDpth_Gape <- lm(Gape ~ HdDpth, data = HdDpth_Gape)
+
+summary(model_HdDpth_Gape)
+
+model_HdDpth_Gape_vis <- ggplot(HdDpth_Gape, mapping = aes(x = HdDpth, y = Gape)) + geom_point(size = 0.5) + geom_smooth(method = "lm", fill = "grey") + annotate("text", x = 4, y = 14, label = "R^2 == 0.5358") + theme_bw()
+
+model_HdDpth_Gape_vis
+```
+
+```
+Comparing Head Depth to Gape is still a direct relationship, however the values for R squared, intercept, and standard error are different. When plotted you can see that the data is less clustered so there are bound to be more residuals or a smaller probability that the predictor variable actually relates to the response variable. This is reflected in the wide scope of the confidence interval. 
+```
+
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+##I am using my own data
+
+population_SVL <- measurements_data %>% 
+  select(population, SVL)
+
+population_SVL_vis <- ggplot(population_SVL, mapping = aes(x = population, y = SVL, color = population)) + geom_jitter()
+
+population_SVL_vis
+
+##Here I am creating the linear model here in order to do the anova after. This is also seen in my answer to 3).
+
+model_pop_SVL <- lm(formula = SVL ~ population, data = population_SVL)
+
+summary(model_pop_SVL)
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+anova_pop_SVL <- aov(model_pop_SVL)
+
+summary(anova_pop_SVL)
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+model_pop_SVL <- lm(formula = SVL ~ population, data = population_SVL)
+
+summary(model_pop_SVL)
+```
+
+```
+The linear model gives standard error, the y-intercept, and the R squared values which the ANOVA does not. The linear model aslo shows the relationships of the variables (e.g. everything else kept the same, SVL decreases by 2.442 in population PD)
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+model_pop_SVL_vis <- ggplot(model_pop_SVL, mapping = aes( x = population, y = SVL, color = population)) + geom_jitter(size = 0.5) + geom_smooth(method = "lm", fill = "grey") + annotate("text", x = 2, y = 130, label = "R^2 == 0.1565") + theme_bw()
+
+model_pop_SVL_vis
+
+##I tried this same problem with two predictor variables (population and SVL instead on head length and it resembled more of what we did in class. However, the instructions did not specify the need for more than two predictor variables so I stuck with my initial variables. [SVL ~ population]) The graph for the former model actually produced data with multiple best-fit lines and confidence intervals as compared to my plot of the lm with only the one categorical predictor and numerical response variables.
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+#Commands here
+```
+
+2) Push your changes to github (10 pts)
+
+```
+#Commands here
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.
