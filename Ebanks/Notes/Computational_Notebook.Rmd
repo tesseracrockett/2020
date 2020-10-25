@@ -1,0 +1,79 @@
+---
+title: "Computational Lab Notebook"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Sept. 23 2020
+
+*Goal:* Change the color scheme of my homework graph. 
+
+*Worked:* 
+
+*Not worked:*
+```{r}
+
+
+```
+
+
+
+
+## October 5, 2020
+
+Trying revision management for the first time. 
+
+-{x} First push worked
+
+## Ppt Notes:
+Adding code to a repository 
+  - add -> commit -> push
+    - Adding tells Git what file we've added stuff to 
+    - Commit tells Git to save the file
+      - "Commiting" to the work you've done
+    - Push puts the code in the online repository 
+  
+
+## October 7, 2020
+
+
+
+
+## October 14, 2020
+
+Linear model intro
+
+```{r}
+
+ggplot(crabs, aes(x = carapace_length, y = body_depth, color = carapace_width)) + geom_point(size = 2) + labs(x = "Carapace length (mm)", y = "Body depth (mm)", color = "Carapace width (mm)") + scale_color_distiller(palette = "Reds") + annotate("text", x = 25, y = 30, label = "R^2 = 0.977", size = 5) + theme(legend.position = "bottom") + theme_bw()
+
+## This is nice for the distiller function
+
+```
+
+
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

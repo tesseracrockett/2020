@@ -1,0 +1,160 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+
+ariel_modified_data <- read_csv("Ebanks/Data/ariel_modified_data.csv")
+
+```
+```
+# Total_Above_Bio will be the response, and J_roe_Above_Bio will be the predictor. 
+
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+
+ggplot(ariel_modified_data, mapping = aes(x = J_roe_Above_Bio, y = Total_Above_Bio)) + geom_point()
+
+```
+
+```
+# Roughly, yes. 
+
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+
+model_fit <- lm(Total_Above_Bio ~ J_roe_Above_Bio, data = ariel_modified_data)
+summary(model_fit)
+
+```
+
+4) Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+# The intercept tells us when aboveground biomass of J. roemerianus is 0, total aboveground biomass is 263.353 g/m^2 on average. This makes sense because S. alterniflora is also influencing total biomass. J_roe_Above_Bio tells us when J. roemerianus increases by 1 g/m^2, we expect total aboveground biomass to increase by 0.874 g/m^2. The R-squared tells us 73% of variation in total aboveground biomass can be explained by J. roemerianus aboveground biomass. However, the residual standard error is 156.1 so this is a very poor model
+
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```{r}
+
+ggplot(ariel_modified_data, aes(x= J_roe_Above_Bio, y = Total_Above_Bio)) + geom_point(size = 1.5) + labs(x = "J. roemerianus Abovegroud Biomass (g/m^2)", y= "Total Aboveground Biomass (g/m^2)", title = "Linear regression to predict total aboveground biomass") + geom_smooth(method = "lm", size = 1.5) + annotate("text", x = 250, y = 1000, label = "R^2 == 0.734", parse = T, color = "firebrick", size = 10) + theme_bw() + theme(text = element_text(size = 30))
+
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+
+augmented_fit <- broom::augment(model_fit)
+qqnorm(augmented_fit$.resid)
+qqline(augmented_fit$.resid, col = "red")
+
+```
+
+
+```
+Residuals show rough normality. We don't appear to be violating any assumptions. 
+
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+
+ggplot(ariel_modified_data, aes(x= J_roe_Above_Bio, y = Total_Above_Bio, color = Oiling_Category)) + geom_point(size = 1.5) + labs(x = "J. roemerianus Abovegroud Biomass (g/m^2)", y= "Total Aboveground Biomass (g/m^2)", color = "Oiling Category", title = "Linear regression to predict total aboveground biomass") + geom_smooth(method = "lm", size = 1.5) + annotate("text", x = 250, y = 1000, label = "R^2 == 0.734", parse = T, color = "firebrick", size = 10) + theme_bw() + theme(text = element_text(size = 25))
+
+```
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+
+ggplot(ariel_modified_data, aes(x = Oiling_Category, y = Total_Above_Bio, color = Oiling_Category)) + geom_jitter()
+
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+
+anova_model_fit <- aov(model_fit)
+summary(anova_model_fit)
+
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+
+model_fit <- lm(Total_Above_Bio ~ Oiling_Category, data = ariel_modified_data)
+summary(model_fit)
+
+```
+
+```
+The linear model provides us with residual standard error, multiple and adjusted R-squared values, and residuals. 
+
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+
+ggplot(ariel_modified_data, aes(x = Oiling_Category, y = Total_Above_Bio, color = Oiling_Category)) + geom_jitter() + labs(x = "Oiling Category", y = "Total Aboveground Biomass (g/m^2)") + theme(legend.position = "none") + stat_summary(fun.data = "mean_se", color = "black")
+
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+# Go to Git tab, find and open project directory, check "Staged" next to project_two_Ebanks.Rmd, press commit, type description in box and submit.  
+```
+
+2) Push your changes to github (10 pts)
+
+```
+# Press the green arrow on Git tab. 
+
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.

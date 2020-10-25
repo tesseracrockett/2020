@@ -10,9 +10,13 @@ By Wednesday, Sept. 30, document one function we've used in class for 3 bonus po
 
 Put your function on this table:
 
-| Function Name | Package, if any | Utility | Example |
+
+| Function Name | Package, if any | Utility | Example  |
 |---------------|-----------------|---------|----------|
 | sum     | Base R    | Sum a range of numbers | sum(1:6) | 
-|ggplot    | Tidyverse    |Creates a plot with labeled axis, without graphed data   |ggplot(data = diameters_clean, mapping = aes(x = spp, y = year_2016))|
-|
-|
+| mean    | Base R    | Average a vector of numbers | mean(c(1, 2, 3)) |
+| str     | Base R    | Describe the structure of a data frame    | str(surveys_complete)   |
+| select  | dplyr     | selects variables in a data frame (pulls full columns) | select(sirens, Specific_Epithet)
+| View    | Utils     | View a matrix-like object in spreadsheet-style | View(surveys_complete) |
+| lm | Base R | Fit a linear model to data | lm(weight~hindfoot_length)
+

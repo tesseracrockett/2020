@@ -1,0 +1,163 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+# read in data here
+> library(readr)
+> Data <- read_csv("data/Data.csv")
+```
+
+```
+# Answer which column is predictor and which is response
+Predictor = estimated age
+Response = SVL
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+# Plot here
+> ggplot(Data, mapping = aes(x = Estimated_Age, y = SVL)) + geom_point()
+```
+
+```
+#Answer here
+Yes, they do appear linear
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+# Code here
+> model_fit <- lm(SVL ~ Estimated_Age, data = Data)
+```
+
+4) Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+# Answer here
+It would seem so. The coefficients are both highly significant, residual standard error is low (1.078), and the R^2 values is around 95%.
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```
+# Code here
+
+ggplot(Data, mapping = aes(x = Estimated_Age, y = SVL)) + geom_point() + geom_smooth(method = lm) + labs(title = "Relationship Between Age & Body Size in Urspelerpes brucei", x = "Estimated Age (months)", y = "SVL (mm)") + theme(axis.text.x = element_text(size = 20), axis.text.y = element_text(size = 20), text = element_text(size = 20))
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+
+#Code here
+> augmented_fit <- broom::augment(model_fit)
+> qqnorm(augmented_fit$.resid)
+> qqline(augmented_fit$.resid, col = "red")
+
+```
+
+
+```{r}
+
+#Answer here
+The data is actually quite similar to what we had seen in class. My lower sample sizes on the extremeties of the data are all that deviate from the line, while the majority of the data lies on it.
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+#code here
+ ggplot(Data, mapping = aes(x = Estimated_Age, y = SVL)) + geom_point() + geom_smooth(method = lm) + facet_wrap(facets = vars(Life_Stage))
+
+Including life stage in the mix breaks it up into 3 separate linear models (adults, larvae, metamorphs)
+```
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+
+# plot code here
+> ggplot(Data, mapping = aes(x = Life_Stage, y = SVL, color = Life_Stage)) + geom_point() + geom_jitter()
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+# ANOVA code here
+> model_fit <- lm(SVL ~ Life_Stage, data = Data)
+> anova_model_fit <- aov(model_fit)
+> summary(anova_model_fit)
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+
+#Code here
+summary(model_fit)
+```
+
+```
+#Answer here
+The ANOVA tells you neither the normality of your data, nor how it fits your linear model.
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+
+#Plot code here
+> ggplot(Data, mapping = aes(x = Life_Stage, y = SVL, color = Life_Stage)) + geom_point() + geom_smooth(method = lm) + geom_jitter()
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+#Commands here
+git add "/cloud/project/projects_brock/project_two_brock/project_two_instructions.Rmd"
+git commit "/cloud/project/projects_brock/project_two_brock/project_two_instructions.Rmd"
+```
+
+2) Push your changes to github (10 pts)
+
+```
+#Commands here
+git push origin class
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.
