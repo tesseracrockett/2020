@@ -241,6 +241,23 @@ diversity_Simps <- iNEXT(camDiv, q=2, datatype = "abundance")
 + theme_bw()
 ```
 
+##November 4, 2020
+filter out non animal species count from file on monday
+```{r}
+junk <-c("Camera.Misfire", "Calibration.Photos", "Camera.Trapper", "Vehicle", "No.Animal", "Human.non-staff")
+```
+now mass remove the above vector of names
+! mean not, != means not equal
+```{r}
+speciesCount <- speciesCount %>% 
++ filter(!(Common.Name %in% junk))
+```
+filters out anything in common name that appears in the junk vector
+```{r}
+speciesCount$Common.Name
+```
+went from 40 to down to like 34
+
 
 
 
