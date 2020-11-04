@@ -20,6 +20,7 @@ library(dplyr)
 library(rotl)
 library(rgbif)
 library(leaflet)
+library(tidyverse)
 ```
 
 
@@ -43,7 +44,6 @@ Next, we're going to use `occ_search` to search the GBIF database for where thes
 Next, we will filter the resultant dataset to name and lat and longitude data.
 
 ```{r}
-library(tidyverse)
 no_na <- occurences$data %>%
   select(scientificName, decimalLatitude, decimalLongitude) %>% 
   drop_na()
@@ -55,8 +55,8 @@ And finally, we will plot the data using `leaflet`
 
 ```{r}
 k <- leaflet::leaflet(no_na) %>% 
-addTiles() %>% 
-addMarkers(~decimalLongitude, ~decimalLatitude, popup = no_na$scientificName)
+  addTiles() %>% 
+  addMarkers(~decimalLongitude, ~decimalLatitude, popup = no_na$scientificName)
 
 ```
 

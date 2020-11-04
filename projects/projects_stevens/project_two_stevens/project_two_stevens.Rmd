@@ -1,0 +1,170 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+> surveys <- read_csv("data/surveys.csv")
+
+surveys_filtered <- surveys %>%
++     filter(!is.na(weight)) %>%
++     filter(!is.na(hindfoot_length)) 
+
+did the seccond part to filter out Na's
+```
+
+```
+hindfoot length as my predictor and weight as my response. 
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+ggplot(surveys_filtered, aes(x = hindfoot_length , y = weight)) +
++     geom_point()
+```
+
+```
+the data points appear to be grouped linearly across the three species plotted
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+surveys_model <- lm(weight ~ hindfoot_length, data = surveys_filtered)
+ 
+
+> summary(surveys_model)
+```
+
+4) Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+Our fitted model is Y=2.55X−32.85+ϵ
+~46.76% of variation in species weight can be explained by hindfoot length.
+For every 1 mm increase in hindfoot length, we expect weight to increase by an average of 2.55units.
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```
+# Code here
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+
+surveys_model <- lm(weight ~ hindfoot_length, data = surveys_filtered)
+
+broom::tidy(surveys_model)
+
+broom::glance(surveys_model)
+
+broom::augment(surveys_model)
+
+qqnorm(augmented_fit$.resid)
+qqline(augmented_fit$.resid, col = "red")
+```
+
+
+```{r}
+
+residuals test as non normal because its comparing all three species' residuals
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+#code here
+```
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+
+ surveys_filtered_sex <- surveys_filtered %>%
+         filter(!is.na(sex)) 
+
+> ggplot(surveys_filtered_sex, aes(x = sex , y = weight)) +
+         geom_point()
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+ggplot(surveys_filtered_sex, aes(x = sex, y = weight, color=sex)) + geom_jitter()
+
+aov(model_fit_sex) -> anova_model_fit_sex
+
+summary(model_fit_sex)
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+ggplot(surveys_filtered_sex, aes(x = sex, y = weight, color=sex)) + geom_jitter()
+
+
+model_fit_sex <- lm(weight ~ sex, data = surveys_filtered_sex)
+
+summary(model_fit_sex)
+
+```
+
+```
+#Answer here
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+
+ggplot(surveys_filtered_sex, aes(x = sex, y = weight, color=sex)) + geom_jitter()
+
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+#Commands here
+```
+
+2) Push your changes to github (10 pts)
+
+```
+#Commands here
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.

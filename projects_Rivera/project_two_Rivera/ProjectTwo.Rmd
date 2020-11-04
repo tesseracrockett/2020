@@ -1,0 +1,141 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+surveys <- read.csv("/cloud/project/data/portal_data_joined.csv")
+```
+
+```
+In this situation, hindfoot_length would be the predictor value, and weight would be the response value.
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+ggplot(surveys, aes(x = hindfoot_length, y = weight)) + geom_point()
+```
+
+```
+These data do not appear to be related linearly.
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+model_fit <- lm(weight ~ hindfoot_length, data = surveys)
+summary(model_fit)
+```
+
+4) Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+Yes, the summary makes sense. The residual standard error is 26. Given that this value is far away (relatively) from 0, this model is not a good model fit. The intercept is -32, and this is the expected value of the response variable (weight) when the predictor value (hindfoot length) is 0. The R-squared number is 0.46, so in this model 46% of the variation in weight can be explained by hindfoot length. 54% of the variation in weight is unexplained by the model. Overall, I would say that this model does not have good predictive power.
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```{r}
+ggplot(surveys, aes(x = hindfoot_length, y = weight)) + geom_point(size = 0.5) + geom_smooth(method = "lm", color = "blue", size = 0.5) + labs(x = "Length of Hindfoot (mm)", y = "Weight of Animal (grams)") + theme_bw() + theme(text = element_text(size = 16))
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+augmented_fit <- augment(model_fit)
+qqnorm(augmented_fit$.resid)
+qqline(augmented_fit$.resid, col = "blue")
+```
+
+
+```
+The residuals are not normal, and are definitely violating assumptions.The numeric predictors do not have a linear relationship with the numeric response. Additonally, the residuals of the fitted model are not normally distributed.
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+ggplot(surveys, aes(x = hindfoot_length, y = weight, color = species)) + geom_point(size = 0.5) + facet_wrap(vars(species)) + geom_smooth(method = "lm", color = "blue", size = 0.5)
+
+### I don't think any of these have a true linear relationship, but a few species come close.
+```
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+ggplot(surveys, aes(x = sex, y = weight, color = sex)) + geom_jitter(size = 0.5) + labs(x = "Sex", y = "Weight (grams)") + stat_summary(fun.data = "mean_se", color = "black", size = 0.2)
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+model_fit <- lm(weight ~ sex, data = surveys)
+anova_model_fit <- aov(model_fit)
+summary(anova_model_fit)
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+model_fit <- lm(weight ~ sex, data = surveys)
+summary(model_fit)
+```
+
+```
+With linear regression, the categorical variale is represented by 2 variables. The linear regression output also gives you an intercept and R-squared values.
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+ggplot(surveys, aes(x = sex, y = weight, color = sex )) + geom_point() + geom_smooth(method = "lm", color = "red", size = 0.5)
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+git add projects_Rivera/project_two_Rivera/ProjectTwo.Rmd
+git commit projects_Rivera/project_two_Rivera/ProjectTwo.Rmd
+```
+
+2) Push your changes to github (10 pts)
+
+```
+git push origin Class
+
+I struggled a lot with this process. When I initially comitted I wasn't able to push. After attempting to commit several times, I ended up having to pull, merge, and push the content again. I was finally able to push to github with this code.
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.

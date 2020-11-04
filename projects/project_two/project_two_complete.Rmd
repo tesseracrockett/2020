@@ -1,0 +1,174 @@
+---
+title: "Project Two"
+output: html_document
+---
+
+Due Oct. 18 at Midnight. 
+
+For this first part of the exam, you can either use `surveys_complete.csv` or your own data. If you are using your own data, you must have data in which you think you have a numerical predictor variable and a numerical response variable. If you are using `surveys_complete`, you can use weight and hindfoot_length for this.
+
+1) Load in your data. Which variable will you be using as a predictor, and which as a response? (5 pts)
+
+```{r}
+# read in data here
+Hyalella_data <- read.csv("/cloud/project/Mahoney/Data/Condensed_Data.csv")
+
+```
+
+```
+# Answer which column is predictor and which is response
+The treatment will be the predictor and the response is the days until death. 
+```
+
+2) Plot the two against each other with a scatter plot. Do the data appear to be related linearly? (5 pts)
+
+
+```{r}
+# Plot here
+Hyalella_data$Days.Until.Death <- as.numeric(Hyalella_data$Days.Until.Death)
+ggplot(Hyalella_data, mapping = aes(x = Treatment, y = Days.Until.Death)) + geom_point()
+```
+
+```
+#Answer here - These data do not appear to be related linearlly. 
+```
+
+
+3) Fit the linear model. View the summary. (5 pts)
+
+
+```{r}
+# Code here
+model_fit_H <- lm(Days.Until.Death ~ Treatment, data = Hyalella_data)
+summary(model_fit_H)
+```
+
+4) Does the summary make sense? Does our model have good precitive power? Evaluate the residual standard error, intercept, and R-Squared in particular.  (10 pts)
+
+
+```
+# Answer here - The residual standard error is higher at 1.585, which does not seem like a great model fit. The y-intercept is 1.6389 +/- 0.5227. Since many of the specimens survived just a day, this makes sense, although it is a bit higher than the lowest days of survival. With the standard error though, this seems reasonable and is logical with the data. The R^2 value is 0.01762. This is an extremely low R^2 value, thus I would expect there to be little correlation to the data. Although the y-intercept is logical and fits, the higher residual standard error and low R^2 value reflects that the linear model is not a good fit for these data.
+```
+
+
+5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. (5 pts)
+
+```
+# Code here
+ggplot(Hyalella_data, mapping = aes(x = Treatment, y = Days.Until.Death)) + geom_point(size = 0.6) + geom_smooth(method = "lm", color = "navy", size = 0.5, fill = "deeppink4") + labs(x = "Salinity Treatment (ppt)", y = "Days Until Death", title = "Days Hyallela sp. Survived in Varying Salinity Treatments") + theme(axis.title.x = element_text(colour = "grey20", size = 18), axis.title.y = element_text(colour = "grey20", size = 18)) + theme_bw()
+```
+
+
+6) Check the normality of the residuals. Do they look OK? Are we violating assumptions? (5 pts)
+
+```{r}
+
+#Code here
+augment(model_fit_H) -> augmented_fit
+qqnorm(augmented_fit$.resid, col="darkred")
+
+```
+
+
+```{r}
+
+#Answer here 
+As suspected, the linear model does not fit based on this Q-Q plot. The assumption is that the fit will be linear, and it is not. It appears to be exponential and thus violates the assumption.
+```
+
+7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
+
+If you are *not* using  `surveys_complete`: Do you think there are groupings within your data that may have a separate linear model? Try grouping the data by that variable and redoing the lm. (15 pts)
+
+```{r}
+#code here
+ggplot(Hyalella_data, mapping = aes(x = Treatment, y = Days.Until.Death)) + geom_point(size = 0.6) + geom_smooth(method = "lm", color = "navy", size = 0.5, fill = "deeppink4") + labs(x = "Salinity Treatment (ppt)", y = "Days Until Death", title = "Days Hyallela sp. Survived in Varying Salinity Treatments") + theme(axis.title.x = element_text(colour = "grey20", size = 18), axis.title.y = element_text(colour = "grey20", size = 18)) + facet_grid(rows = vars(Size.Grouping))
+
+model_fit <- lm(Treatment ~ Days.Until.Death + Size.Grouping, data = Hyalella_data)
+
+augment(model_fit) -> augmented_fit
+
+qqnorm(augmented_fit$.resid, col="darkred")
+
+This q plot violates normalcy, this appears like an S-curve rather than a linear line. 
+```
+I had taken the length in cm of all the amphipods. I suspected the accuracy of the measurements wasn't great so I had it in my notes rather than in the dataset, but I added it in for this question. Then if it was below 0.40 cm, I categorized it as small. If it was above 0.40 cm, it was categorized as large. 
+
+## Part Two
+
+In this portion, you are free to use your own data if you have a categorical predictor variable and a response variable. Otherwise, you may use the columns sex and weight in `surveys_complete`
+
+1) First, plot the data grouped by sex (5 pts)
+
+```{r}
+
+# plot code here
+surveys_complete <- read.csv("/cloud/project/data_output/surveys_complete.csv")
+
+ggplot(data = surveys_complete, mapping = aes(x = sex, y = weight)) + geom_jitter(size = 0.7) + labs(x = "Sex", y = "Weight (g)", title = "Weight (g) in Females and Males") + theme_bw()
+```
+
+2) Try an ANOVA of this data (5 pt)
+
+```{r}
+model_fit <- lm(weight ~ sex, data = surveys_complete)
+summary(model_fit)
+# ANOVA code here
+anova_model_fit <- aov(model_fit)
+summary(anova_model_fit)
+
+```
+
+3) How about a linear model? What information does this give you that an ANOVA can't? (5 pts)
+
+
+```{r}
+
+#Code here
+model_fit <- lm(weight ~ sex, data = surveys_complete)
+summary(model_fit)
+```
+
+```
+#Answer here ~ Anovas tell you whether there is a significant difference between the two variables. The linear model gives you an idea of the normalcy with the data by looking at the residual standard error and the intercept. It also tells you how well the data correlates to a linear line, which in this case is essentially zero correation. 
+```
+
+3) Plot the lm with the data, with points colored by sex. (10 pts)
+
+
+```{r}
+
+#Plot code here
+ggplot(data = surveys_complete, mapping = aes(x = sex, y = weight, color = sex)) + geom_jitter(size = 0.7) + labs(x = "Sex", y = "Weight (g)", title = "Weight (g) in Females and Males") + geom_smooth(method = "lm", color = "green", size = 0.9)
+
+```
+
+## Part Three
+
+
+1) Add and commit this document (5 pts)
+
+```
+#Commands here
+git add "/cloud/project/projects/project_two/project_two_complete.Rmd"
+git commit -m please
+
+(I hope you get a chuckle out of that)
+```
+
+2) Push your changes to github (10 pts)
+
+```
+#Commands here
+git push vkm_copy Class
+```
+
+3) Make a pull request on my repo so I'm notified. *Do this last, when you are done and ready for me to see it* (10pts)
+
+
+
+# MS students
+
+My expectation is that you'll do this with your own data. If any part of this doesn't make sense with your data, please get in touch ASAP so we can work it out.
+
+In addition, please take one of the statistical tests we tried, and write it as a function in the `R/` folder of your last name directory. Write appropriate documentation with it. Add, commit, and push it to Github. I'll view it there.
