@@ -7,4 +7,8 @@
 #' lm(biomass~flooding, data =plant_data)
 #' 
 
+Lm <- function(biomass~flooding, data = plant_data){
+              lm <-(response~predictor, data = )
+              return(linear model)}
+
   
