@@ -3,7 +3,7 @@
 #' @param lm Linear Model(response~predictor, data = )(catagorical, no default)
 #' @return model_fit
 #' 
-#' @example 
+#' @example  
 #' lm(biomass~flooding, data =plant_data)
 #' 
 

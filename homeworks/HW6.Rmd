@@ -1,0 +1,40 @@
+---
+title: "HomeworkSix"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Homework Six
+## Due Monday, Nov. 9 at 5 pm.
+
+We're in the in shadow of the end. So it's time for us to start working out what our final R packages will do. What I need to know on this homework is:
+
++ Will you be working with anyone? 
+#TBC:
+no
+
++ What dataset do you intend to use? For undergrads, this could be the weather stations, surveys, or ants. For grad students, this needs to be either your own data, or something else that I've approved. 
+#TBC:
+ecotox data set; located: "/cloud/project/crockett/data/complete_ecotox_data.csv"
+
++ What have you decided the three functions in your package do?
+#TBC:
+1)compute root to shoot ratio
+2)compute plant height increase
+3)either run an anova or create ggplot comparing plant height and root/shoot over dose 
+
++ Prepare the first function. Perform documentation correctly. Next week, we will practice turning the weird R document format into a real manual and website.
+#TBC:
+located: "/cloud/project/crockett/R/R_pkg/calc_root_shoot_ratio.R"
+
++ Write down: How do you know the function is working? Is there data you could enter that is simple enough that you could easily verify the function is doing what it's meant to do? 
+#TBC
+YES WOOHOO!! was able to read in CSV in R on my comp and verify that function does indeed create a new column as desired
+```{r}
+complete_ecotox_data %>% 
++ mutate(root_shoot_ratio = (BELOWGROUND/ABOVE_GROUND)) %>% 
++ view()
+```
+
