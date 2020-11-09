@@ -258,8 +258,13 @@ speciesCount$Common.Name
 ```
 went from 40 to down to like 34
 
+##November 9th, 2020
+project 3 is an R package on github with three functions and full documentation. goal of final is a tutorial showing classmates how to run functions
 
 
+today, aspects of package creation 9/11 oriented towards walking through and developing package, testing or unit testing. writing small checks such that you can know that your package is doing what it's supposed to be doing. 
+
+creating R pkg - have to have R on personal machine, added git
 
 
 ## Including Plots
