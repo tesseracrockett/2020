@@ -1,0 +1,133 @@
+---
+title: "notes 09_14"
+author: "Tess"
+date: "9/14/2020"
+output: html_document
+visualization
+ - plots
+  - ggplot meant to work with spreadsheet data
+ggplot (data = surveys_complete)
+ - tell it where we are plotting from 
+ surveys_plot <- ggplot(data = surveys, mapping = aes (x = weight, y = hindfoot_length))
+  - set coordinates to pull from 
+  - gives ugly scatter plot
+  - now add in alpha - makes scatter plot more transparent, and can add in color of points
+ggplot (data = surveys, mapping = aes (x = weight, y= hindfoot_length)) + geom_point(alpha = 0.1, color = "blue")    
+ - aes stands for an aesthetic argument
+  - could also put color in ggplot directly, behind coordinates, can assign color by EX: species id
+ggplot( data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) + geom_point(alpha = 0.1, aes(color = species_id))  
+-geom dictates what type of graph we get EX: + geom_boxplot()
+ - but box plots hide data points, can overlay data points on top of box plot by EX:
+ggplot(data = surveys_complete, mapping = aes(x=species_id, y =weight)) + geom_boxplot(alpha = 0.1) + geom_jitter(alpha = 0.1, color = "tomato") - or reverse geom_boxplot and +geom_jitter to put boxs on overlaid on data plot
+violin plots good for data that is not normally distributed EX: ggplot(data = surveys_complete, mapping = aes(x=species_id, y =hindfoot_length, color = plot_id)) +geom_boxplot(alpha = 0.1) +geom_jitter(alpha = 0.1)
+ - log10 scaling helps us see more of the variation when there's a large difference between the largest and smallest observations (always add this info to figure legend)
+ -----**how to change an integer to a factor**----
+ EX: surveys_complete$plot_id <- as.factor(surveys_complete$plot_id)
+ 
+  - count of how many per genus per year
+  yearly_counts <- surveys_complete %>% 
++ count(year, genus)
+> yearly_counts
+  - now graph this data
+ ggplot(data = yearly_counts, mapping =aes (x = year, y = n)) + geom_line() - but its missing genus, add this in 
+ ggplot(data = yearly_counts, mapping =aes (x = year, y = n, group = genus)) + geom_line()
+  - but if you change the word group to color, it colors the lines and adds a figure legend
+  
+  09-16-20 plotting notes
+  ggplot (data = yearly_counts, mapping = aes(x= year, y=n, group = genus)) + geom_line()
+> ggplot (data = yearly_counts, mapping = aes(x= year, y=n, color = genus)) + geom_line()
+
+--second line of code colors each individually and provides key - bad for those with color blindness and can be hard to read
+faceting - 
+ggplot (data = yearly_counts, mapping = aes(x= year, y=n)) + geom_line() +facet_wrap(facets = vars(genus)) 
+ -- vars means figure out how many unique variables 
+ facet wrap splits each genus into it's own plot - figure is MUCH easier to read, collectively referred to as facet plot (structure), each one individually is a facet - less visual confusion --THIS WOULD BE GOOD PLOTTING FOR MY PROJECT
+ - look at multiple trend lines per facet
+ yearly_sex_count <- surveys_complete %>% 
++ count(year, sex, genus)
+> yearly_sex_count
+# A tibble: 389 x 4
+    year sex   genus               n
+   <dbl> <chr> <chr>           <int>
+ 1  1977 F     Chaetodipus         3
+ 2  1977 F     Dipodomys         103
+ 3  1977 F     Onychomys           2
+ 4  1977 F     Perognathus        14
+ 5  1977 F*     Reithrodontomys     1
+ 6  1977 M*    Dipodomys         119
+ 7  1977 M     Onychomys           1
+ 8  1977 M     Perognathus         8
+ 9  1977 M     Peromyscus          2
+10  1977 M     Reithrodontomys     1
+then....
+2 lines per facet 
+ggplot(data = yearly_sex_count, mapping = aes(x= year, y= n, color = sex)) +geom_line() + facet_wrap(facets = vars(genus))
+as long as you have discreet values you can color and facet by that value, as done above
+-facet grid function, provides more control 
+ggplot(data = yearly_sex_count, mapping = aes(x= year, y= n, color = sex)) +geom_line() + facet_grid(rows= vars(sex), cols = vars(genus))
+- or remove columns and treat genus only
+ggplot(data = yearly_sex_count, mapping = aes(x= year, y= n, color = sex)) +geom_line() + facet_grid(rows= vars(genus))
+--facet very flexible - great for highlighting averages, trends, oddities
+--can utilize theme to clean up and make more visually pleasing
+ggplot(data = yearly_sex_count, mapping = aes(x= year, y= n, color = sex)) +geom_line() + facet_wrap(vars(genus)) + 
++ theme_bw() - strips out all color that isn't black and white outside of what has been assigned color - prints cleaner
+for the challenge:
+  yearly_avg_wgt <- surveys_complete %>% 
++ group_by(year, species_id) %>% 
++ summarize(avg_wgt = mean(weight))
+`summarise()` regrouping output by 'year' (override with `.groups` argument)
+> yearly_avg_wgt
+# A tibble: 332 x 3
+# Groups:   year [26]
+    year species_id avg_wgt
+   <dbl> <chr>        <dbl>
+ 1  1977 DM           41.1 
+ 2  1977 DO           42.7 
+ 3  1977 DS          122.  
+ 4  1977 OL           21   
+ 5  1977 OX           22   
+ 6  1977 PE           19.5 
+ 7  1977 PF            7.14
+ 8  1977 PP           15.3 
+ 9  1977 RM           10   
+10  1978 DM           40.8 
+# … with 322 more rows
+
+ctrl a jumps to front of line, ctrl e jumps to end
+--- labs function means labels, add title and axis lables over defaults
+ggplot(data = yearly_sex_count, mapping = aes(x= year, y= n, color = sex)) +geom_line() + labs(title = "Observations per genera through time",x = "year", y = "number of individuals")+
++ theme_bw()
+--syntax for enlarging text
+theme(text = element_text(size = 16))
+adjusting angles and setting font size
+custom_theme <- theme(axis.text.x = element_text(angle = 90, size = 14),
++                       axis.text.y = element_text(size = 14),
++                       text = element_text(size = 16))
+> custom_theme ---this is now a custom visualization that can be used anywhere in the future
+EX: 
+ggplot(data = yearly_sex_count, mapping = aes(x = year, y = n, color = sex)) + geom_line() + facet_wrap(vars(genus))+ labs(title = "observations per general through time", x = "year", y = "number of individuals") + custom_theme
+> ggplot(surveys_complete, aes(x = species_id, y = weight)) +
++     geom_boxplot()+
++     custom_theme
+
+saving plots
+customizability to ggsave function
+save particular width and particular pixils per inch(dpi) do not save too low of a dpi, will look pixilated, too high will be blurry
+EX: (find in project file)
+my_plot <- ggplot(surveys_complete, aes(x = species_id, y = weight)) +
++     geom_boxplot()+
++ custom_theme +
++ scale_fill_distiller(palette = "Blues")
+> my_plot
+> ggsave("myplot.png", my_plot, width = 10, dpi = 300)
+can also save without entering width or dpi, defaults will be used
+exporting multiple plots to an object
+EX:
+  boxplot <- ggplot(surveys_complete, mapping = aes( x = genus, y = weight))+
++     geom_boxplot()
+> boxplot
+> count_plot <- ggplot(yearly_counts, mapping = aes( x = year, y= n, color = genus))+ geom_line()
+> count_plot
+> side_by_side <- grid.arrange(boxplot, count_plot, ncol = 2, widths = c(4,6))
+> ggsave("side_by_side.png", side_by_side, width = 10, height = 8)
+

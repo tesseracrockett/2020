@@ -1,0 +1,124 @@
+---
+title: "notes 09_21 & 09_23"
+author: "Tess"
+date: "9/21/2020"
+output: html_document
+---
+homework due 09-25 at midnight
+
+exporting things from end of visualization lesson
+ - can use ggsave to export figures at different sizes
+ - selu has figure formatting guidelines and suggestions for thesis figures
+ - good to find favorite journal and look up what their guidelines are for formatting
+ 
+talking about function and repeatability - under project structuring link on webpage
+writing verses using functions - functions take multiple lines of code and combine them to be easily accessible
+function_name <- function(inputs) {
+  output_value <- do_something(inputs)
+  return(output_value)
+function should be intuitively named and do something well
+tidyverse has a lot of functions that are easier to use skin on old r basic function
+default arguments for parameters - 
+if you leave off a  number in your arguments, you get an error
+calc_shrub_vol(1,2)
+Error in calc_shrub_vol(1, 2) : 
+  argument "height" is missing, with no default
+  --its fundamentally telling you there is no way to do what you're asking, can't calculate length*width*height without height, so it becomes commont to provide defaults for arguments therefor if argument is missing, something else is substituted in, not necessarily helpful with mathematical equations but helpful for others
+  EX:
+calc_shrub_vol <- function(length = 1, width = 1, height = 1){
++     volume <- length*width*height
++     return(volume)
++ }
+> calc_shrub_vol(1,2)
+[1] 2
+
+arguments can be in any order as long as they are named
+calc_shrub_vol(width=2, length = 4, height = 1)
+[1] 8
+with no names, you have to put them in the order that the function expects them in 
+best to name arguments whenever you can
+easier to follow your own work
+
+combining and/or chaining functions
+- function like an organ in your body, they carry out one or a small set of operations
+-est_shrub_mass <- function(volume){
++     mass <- 2.65*volume^0.9
++     return(mass) -- do return mass so we can recall mass later
+now combine functions - 
+EX:
+vol_one <- calc_shrub_vol(width = 2, length = 4, height = 1)
+> est_shrub_mass(vol_one)
+[1] 17.21975
+> vol_one
+[1] 8
+
+can also insert function call of calc_shrub_vol instead of renaming it before inserting it as a variable within est_shrub_mass
+can also use pipes to do this as well
+EX:
+shrub_mas <- calc_shrub_vol(.75,1.5,3) %>% 
++ est_shrub_mass()
+> shrub_mass
+Error: object 'shrub_mass' not found
+> shrub_mas
+[1] 7.9194
+
+
+
+--all functions have a basic structure
+function_name <- function(inputs) ---function declaration 
+{ ---denotes beginning of body of the function 
+  output_value <- do_something(inputs)
+  return(output_value)
+} - denotes the end of the body of the function - this area is what tells the function what to do 
+--return statement is optional for most functions, allows you to get the variable back which you can then save and use to manipulate data sets
+--some functions don't have return statements, just prints to screen doesn't export variable - mostly want to have return statement
+EX: 
+calc_shrub_vol <-function(length, width, height) { 
++     volume <- length*width*height
++     return(volume)}
+declared but did not print
+if you run it, it will recognize it as a function but no calculation has been done yet, now calc
+ calc_shrub_vol(1, 1.5, 2)
+[1] 3
+things created inside the function only exist there, not in the "global environment" unless added to the return value - see below
+EX:
+ calc_shrub_vol(1, 1.5, 2)
+[1] 3
+> first_volumne <- calc_shrub_vol(1, 1.5, 2)
+> width
+Error: object 'width' not found
+> first_volumne
+[1] 3
+
+
+separate function : separate(project_dat, taxon, into = c("genus", "species"), sep = "_") - what goes in "" after sep = is whatever is notating the difference between the two pieces of data in the one column
+
+
+**for bonus points download function.ref file and update table from comp webpage
+pipe character between cells, delimited by pipes (don't have to be exactly aligned, just delmiits between cells) start and terminate rows with pipe as well.
+knit button takes R markdown language and turns into html, knit to populate to the html page**
+use this: 
+download.file(url = "https://raw.githubusercontent.com/BiologicalDataAnalysis2019/2020/master/vignettes/HomeworkTwo.Rmd", destfile = "/cloud/project/homeworks/HW2.Rmd")
+
+organizing and structuring projects
+
+make sure to document R functions clearly - looks weird until it renders
+next two months goal is to develop our own little R pkg that is useful to us
+
+documentation: (see function_database_R in my folder for examples)
+all documentation starts with - #'
+then - what does the function do?
+then - enter will autopop #'
+leave next line blank
+then -what each parameter is
+then - what you are returning
+these instructions tell you how to properly execute a function
+
+this weeks homework, documentation assignment
+
+it's really important to try and document both the code that works and the code that doesn't work, so that you don't have wasted effort by continuing to retry bad code
+
+use history to send stuff to console, contains everything you've done in the console
+
+cannot title columns "min" or "max"  because R will think you're calling functions
+cannot bar plot from group_by
